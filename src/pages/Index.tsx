@@ -30,17 +30,17 @@ const Index = () => {
       title: "Лікувальний масаж",
       description:
         "Професійний масаж для лікування захворювань опорно-рухового апарату",
-      icon: <Heart className="w-8 h-8 text-green-600" />,
+      icon: <Heart className="w-8 h-8" style={{ color: "#2d4640" }} />,
     },
     {
       title: "Реабілітація",
       description: "Комплексні програми відновлення після травм та операцій",
-      icon: <Users className="w-8 h-8 text-green-600" />,
+      icon: <Users className="w-8 h-8" style={{ color: "#2d4640" }} />,
     },
     {
       title: "Лікування сколіозу",
       description: "Спеціалізована терапія для корекції викривлення хребта",
-      icon: <Award className="w-8 h-8 text-green-600" />,
+      icon: <Award className="w-8 h-8" style={{ color: "#2d4640" }} />,
     },
   ];
 
@@ -67,33 +67,45 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
-              <Logo size="sm" showText={false} />
-              <span className="text-xl font-bold text-black">
+              <Logo size="sm" showText={false} style={{ color: "#2d4640" }} />
+              <span className="text-xl font-bold" style={{ color: "#161616" }}>
                 tvoya.opora.te
               </span>
             </div>
             <nav className="hidden md:flex space-x-8">
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-gray-700 hover:text-green-600 transition-colors"
+                className="transition-colors"
+                style={{ color: "#9a9c97" }}
+                onMouseEnter={(e) => (e.target.style.color = "#2d4640")}
+                onMouseLeave={(e) => (e.target.style.color = "#9a9c97")}
               >
                 Про нас
               </button>
               <button
                 onClick={() => scrollToSection("services")}
-                className="text-gray-700 hover:text-green-600 transition-colors"
+                className="transition-colors"
+                style={{ color: "#9a9c97" }}
+                onMouseEnter={(e) => (e.target.style.color = "#2d4640")}
+                onMouseLeave={(e) => (e.target.style.color = "#9a9c97")}
               >
                 Послуги
               </button>
               <button
                 onClick={() => scrollToSection("highlights")}
-                className="text-gray-700 hover:text-green-600 transition-colors"
+                className="transition-colors"
+                style={{ color: "#9a9c97" }}
+                onMouseEnter={(e) => (e.target.style.color = "#2d4640")}
+                onMouseLeave={(e) => (e.target.style.color = "#9a9c97")}
               >
                 Інформація
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-gray-700 hover:text-green-600 transition-colors"
+                className="transition-colors"
+                style={{ color: "#9a9c97" }}
+                onMouseEnter={(e) => (e.target.style.color = "#2d4640")}
+                onMouseLeave={(e) => (e.target.style.color = "#9a9c97")}
               >
                 Контакти
               </button>
@@ -101,7 +113,14 @@ const Index = () => {
             <div className="flex items-center space-x-3">
               <Button
                 onClick={() => scrollToSection("contact")}
-                className="bg-green-600 hover:bg-green-700 text-white"
+                className="text-white transition-colors"
+                style={{ backgroundColor: "#2d4640" }}
+                onMouseEnter={(e) =>
+                  (e.target.style.backgroundColor = "#1f332f")
+                }
+                onMouseLeave={(e) =>
+                  (e.target.style.backgroundColor = "#2d4640")
+                }
               >
                 Записатися
               </Button>
@@ -109,7 +128,10 @@ const Index = () => {
                 href="https://www.instagram.com/tvoya.opora.te/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-green-600 transition-colors"
+                className="transition-colors"
+                style={{ color: "#9a9c97" }}
+                onMouseEnter={(e) => (e.target.style.color = "#2d4640")}
+                onMouseLeave={(e) => (e.target.style.color = "#9a9c97")}
               >
                 <Instagram className="w-6 h-6" />
               </a>
@@ -119,17 +141,31 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-12 bg-gradient-to-br from-green-50 to-white">
+      <section
+        className="pt-24 pb-12"
+        style={{
+          background: "linear-gradient(135deg, #f0f4f3 0%, #ffffff 100%)",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-100">
+              <Badge
+                className="mb-4 text-white"
+                style={{ backgroundColor: "#2d4640" }}
+              >
                 Health/Beauty
               </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6">
+              <h1
+                className="text-4xl lg:text-6xl font-bold mb-6"
+                style={{ color: "#161616" }}
+              >
                 МАСАЖ | РЕАБІЛІТАЦІЯ | СКОЛІОЗ
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p
+                className="text-xl mb-8 leading-relaxed"
+                style={{ color: "#9a9c97" }}
+              >
                 9 років досвіду в лікувальному масажі та реабілітації в
                 Тернополі. Професійна допомога при сколіозі та захворюваннях
                 опорно-рухового апарату.
@@ -138,7 +174,14 @@ const Index = () => {
                 <Button
                   size="lg"
                   onClick={() => scrollToSection("contact")}
-                  className="bg-green-600 hover:bg-green-700 text-white"
+                  className="text-white transition-colors"
+                  style={{ backgroundColor: "#2d4640" }}
+                  onMouseEnter={(e) =>
+                    (e.target.style.backgroundColor = "#1f332f")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.target.style.backgroundColor = "#2d4640")
+                  }
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Записатися на прийом
@@ -147,7 +190,16 @@ const Index = () => {
                   size="lg"
                   variant="outline"
                   onClick={() => scrollToSection("services")}
-                  className="border-green-600 text-green-600 hover:bg-green-50"
+                  className="transition-colors"
+                  style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = "#2d4640";
+                    e.target.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "transparent";
+                    e.target.style.color = "#2d4640";
+                  }}
                 >
                   Дізнатися більше
                 </Button>
@@ -157,10 +209,15 @@ const Index = () => {
               <div className="grid grid-cols-3 gap-6">
                 {stats.map((stat, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-green-600">
+                    <div
+                      className="text-2xl font-bold"
+                      style={{ color: "#2d4640" }}
+                    >
                       {stat.number}
                     </div>
-                    <div className="text-gray-600 text-sm">{stat.label}</div>
+                    <div className="text-sm" style={{ color: "#9a9c97" }}>
+                      {stat.label}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -168,13 +225,18 @@ const Index = () => {
 
             <div className="relative flex justify-center">
               <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <Logo size="lg" showText={true} className="text-center" />
+                <Logo
+                  size="lg"
+                  showText={true}
+                  className="text-center"
+                  style={{ color: "#2d4640" }}
+                />
               </div>
               <div className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg">
                 <Heart className="w-8 h-8 text-red-500" />
               </div>
               <div className="absolute -bottom-4 -left-4 bg-white rounded-full p-3 shadow-lg">
-                <Award className="w-8 h-8 text-green-600" />
+                <Award className="w-8 h-8" style={{ color: "#2d4640" }} />
               </div>
             </div>
           </div>
@@ -182,11 +244,23 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 bg-gray-50">
+      <section
+        id="about"
+        className="py-16"
+        style={{ backgroundColor: "#f8f9f9" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-black mb-4">Про нас</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <h2
+              className="text-3xl font-bold mb-4"
+              style={{ color: "#161616" }}
+            >
+              Про нас
+            </h2>
+            <p
+              className="text-lg max-w-3xl mx-auto"
+              style={{ color: "#9a9c97" }}
+            >
               Ми - команда професіоналів з 9-річним досвідом у сфері
               лікувального масажу та реабілітації. Спеціалізуємося на лікуванні
               сколіозу та захворювань опорно-рухового апарату.
@@ -196,9 +270,14 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="text-center p-6 border-gray-200">
               <CardContent className="space-y-4">
-                <Award className="w-12 h-12 text-green-600 mx-auto" />
-                <h3 className="font-semibold text-black">9 років досвіду</h3>
-                <p className="text-gray-600 text-sm">
+                <Award
+                  className="w-12 h-12 mx-auto"
+                  style={{ color: "#2d4640" }}
+                />
+                <h3 className="font-semibold" style={{ color: "#161616" }}>
+                  9 років досвіду
+                </h3>
+                <p className="text-sm" style={{ color: "#9a9c97" }}>
                   Багаторічний досвід у лікувальному масажі
                 </p>
               </CardContent>
@@ -206,9 +285,14 @@ const Index = () => {
 
             <Card className="text-center p-6 border-gray-200">
               <CardContent className="space-y-4">
-                <Users className="w-12 h-12 text-green-600 mx-auto" />
-                <h3 className="font-semibold text-black">502+ клієнтів</h3>
-                <p className="text-gray-600 text-sm">
+                <Users
+                  className="w-12 h-12 mx-auto"
+                  style={{ color: "#2d4640" }}
+                />
+                <h3 className="font-semibold" style={{ color: "#161616" }}>
+                  502+ клієнтів
+                </h3>
+                <p className="text-sm" style={{ color: "#9a9c97" }}>
                   Довіра сотень задоволених клієнтів
                 </p>
               </CardContent>
@@ -216,9 +300,14 @@ const Index = () => {
 
             <Card className="text-center p-6 border-gray-200">
               <CardContent className="space-y-4">
-                <CheckCircle className="w-12 h-12 text-green-600 mx-auto" />
-                <h3 className="font-semibold text-black">Професійно</h3>
-                <p className="text-gray-600 text-sm">
+                <CheckCircle
+                  className="w-12 h-12 mx-auto"
+                  style={{ color: "#2d4640" }}
+                />
+                <h3 className="font-semibold" style={{ color: "#161616" }}>
+                  Профе��ійно
+                </h3>
+                <p className="text-sm" style={{ color: "#9a9c97" }}>
                   Сертифіковані спеціалісти
                 </p>
               </CardContent>
@@ -226,9 +315,14 @@ const Index = () => {
 
             <Card className="text-center p-6 border-gray-200">
               <CardContent className="space-y-4">
-                <MapPin className="w-12 h-12 text-green-600 mx-auto" />
-                <h3 className="font-semibold text-black">Тернопіль</h3>
-                <p className="text-gray-600 text-sm">
+                <MapPin
+                  className="w-12 h-12 mx-auto"
+                  style={{ color: "#2d4640" }}
+                />
+                <h3 className="font-semibold" style={{ color: "#161616" }}>
+                  Тернопіль
+                </h3>
+                <p className="text-sm" style={{ color: "#9a9c97" }}>
                   Зручне розташування у центрі міста
                 </p>
               </CardContent>
@@ -241,10 +335,18 @@ const Index = () => {
       <section id="services" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-black mb-4">Наші послуги</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <h2
+              className="text-3xl font-bold mb-4"
+              style={{ color: "#161616" }}
+            >
+              Наші послуги
+            </h2>
+            <p
+              className="text-lg max-w-3xl mx-auto"
+              style={{ color: "#9a9c97" }}
+            >
               Комплексний підхід до лікування та профілактики захворювань
-              опорно-рухового апарату
+              опорно-рухового апара��у
             </p>
           </div>
 
@@ -258,14 +360,28 @@ const Index = () => {
                   <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-black">
+                  <h3
+                    className="text-xl font-semibold mb-3"
+                    style={{ color: "#161616" }}
+                  >
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <p className="mb-4" style={{ color: "#9a9c97" }}>
+                    {service.description}
+                  </p>
                   <Button
                     variant="outline"
-                    className="w-full border-green-600 text-green-600 hover:bg-green-50"
+                    className="w-full transition-colors"
+                    style={{ borderColor: "#2d4640", color: "#2d4640" }}
                     onClick={() => scrollToSection("contact")}
+                    onMouseEnter={(e) => {
+                      e.target.style.backgroundColor = "#2d4640";
+                      e.target.style.color = "white";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.backgroundColor = "transparent";
+                      e.target.style.color = "#2d4640";
+                    }}
                   >
                     Дізнатися більше
                   </Button>
@@ -277,13 +393,23 @@ const Index = () => {
       </section>
 
       {/* Story Highlights Section */}
-      <section id="highlights" className="py-16 bg-gray-50">
+      <section
+        id="highlights"
+        className="py-16"
+        style={{ backgroundColor: "#f8f9f9" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-black mb-4">
+            <h2
+              className="text-3xl font-bold mb-4"
+              style={{ color: "#161616" }}
+            >
               Корисна інформація
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p
+              className="text-lg max-w-3xl mx-auto"
+              style={{ color: "#9a9c97" }}
+            >
               Дізнайтеся більше про наші послуги та корисні поради
             </p>
           </div>
@@ -291,7 +417,13 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
             {highlights.map((highlight, index) => (
               <div key={index} className="text-center group cursor-pointer">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mb-2 mx-auto group-hover:scale-110 transition-transform duration-300">
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center mb-2 mx-auto group-hover:scale-110 transition-transform duration-300"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(45, 70, 64, 0.1) 0%, rgba(45, 70, 64, 0.2) 100%)",
+                  }}
+                >
                   <span className="text-2xl">
                     {highlight.title.includes("🩶")
                       ? "🩶"
@@ -302,10 +434,15 @@ const Index = () => {
                           : "📋"}
                   </span>
                 </div>
-                <h4 className="text-sm font-medium text-black mb-1">
+                <h4
+                  className="text-sm font-medium mb-1"
+                  style={{ color: "#161616" }}
+                >
                   {highlight.title}
                 </h4>
-                <p className="text-xs text-gray-600">{highlight.description}</p>
+                <p className="text-xs" style={{ color: "#9a9c97" }}>
+                  {highlight.description}
+                </p>
               </div>
             ))}
           </div>
@@ -316,10 +453,13 @@ const Index = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-black mb-4">
+            <h2
+              className="text-3xl font-bold mb-4"
+              style={{ color: "#161616" }}
+            >
               Відгуки клієнтів
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg" style={{ color: "#9a9c97" }}>
               Що кажуть про нас наші клієнти
             </p>
           </div>
@@ -336,17 +476,29 @@ const Index = () => {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-4">
+                  <p className="mb-4" style={{ color: "#9a9c97" }}>
                     "Чудовий спеціаліст! Після курсу масажу почуваюся набагато
                     краще. Рекомендую всім, хто має проблеми зі спиною."
                   </p>
                   <div className="flex items-center">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-green-600 font-medium">К</span>
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center mr-3"
+                      style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                    >
+                      <span
+                        className="font-medium"
+                        style={{ color: "#2d4640" }}
+                      >
+                        К
+                      </span>
                     </div>
                     <div>
-                      <p className="font-medium text-black">Клієнт</p>
-                      <p className="text-sm text-gray-600">Тернопіль</p>
+                      <p className="font-medium" style={{ color: "#161616" }}>
+                        Клієнт
+                      </p>
+                      <p className="text-sm" style={{ color: "#9a9c97" }}>
+                        Тернопіль
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -357,42 +509,67 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-green-600 text-white">
+      <section
+        id="contact"
+        className="py-16 text-white"
+        style={{ backgroundColor: "#2d4640" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl font-bold mb-6">Зв'яжіться з нами</h2>
-              <p className="text-green-100 mb-8 text-lg">
+              <p
+                className="mb-8 text-lg"
+                style={{ color: "rgba(255, 255, 255, 0.8)" }}
+              >
                 Готові допомогти вам відновити здоров'я та покращити якість
                 життя. Записуйтеся на консультацію вже сьогодні!
               </p>
 
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <MapPin className="w-6 h-6 text-green-200" />
+                  <MapPin
+                    className="w-6 h-6"
+                    style={{ color: "rgba(255, 255, 255, 0.6)" }}
+                  />
                   <div>
                     <p className="font-medium">Адреса</p>
-                    <p className="text-green-100">Тернопіль, Україна</p>
+                    <p style={{ color: "rgba(255, 255, 255, 0.8)" }}>
+                      Тернопіль, Україна
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <Clock className="w-6 h-6 text-green-200" />
+                  <Clock
+                    className="w-6 h-6"
+                    style={{ color: "rgba(255, 255, 255, 0.6)" }}
+                  />
                   <div>
                     <p className="font-medium">Режим роботи</p>
-                    <p className="text-green-100">Пн-Пт: 9:00-18:00</p>
+                    <p style={{ color: "rgba(255, 255, 255, 0.8)" }}>
+                      Пн-Пт: 9:00-18:00
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <Instagram className="w-6 h-6 text-green-200" />
+                  <Instagram
+                    className="w-6 h-6"
+                    style={{ color: "rgba(255, 255, 255, 0.6)" }}
+                  />
                   <div>
                     <p className="font-medium">Instagram</p>
                     <a
                       href="https://www.instagram.com/tvoya.opora.te/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-green-100 hover:text-white transition-colors flex items-center"
+                      className="transition-colors flex items-center"
+                      style={{ color: "rgba(255, 255, 255, 0.8)" }}
+                      onMouseEnter={(e) => (e.target.style.color = "white")}
+                      onMouseLeave={(e) =>
+                        (e.target.style.color = "rgba(255, 255, 255, 0.8)")
+                      }
                     >
                       @tvoya.opora.te
                       <ExternalLink className="w-4 h-4 ml-1" />
@@ -403,37 +580,54 @@ const Index = () => {
             </div>
 
             <div>
-              <Card className="bg-white text-gray-900">
+              <Card className="bg-white" style={{ color: "#161616" }}>
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6 text-black">
+                  <h3
+                    className="text-2xl font-bold mb-6"
+                    style={{ color: "#161616" }}
+                  >
                     Записатися на прийом
                   </h3>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2 text-black">
+                      <label
+                        className="block text-sm font-medium mb-2"
+                        style={{ color: "#161616" }}
+                      >
                         Ім'я
                       </label>
                       <input
                         type="text"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent"
+                        style={{ "--tw-ring-color": "#2d4640" } as any}
                         placeholder="Ваше ім'я"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2 text-black">
+                      <label
+                        className="block text-sm font-medium mb-2"
+                        style={{ color: "#161616" }}
+                      >
                         Телефон
                       </label>
                       <input
                         type="tel"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent"
+                        style={{ "--tw-ring-color": "#2d4640" } as any}
                         placeholder="+380 XX XXX XX XX"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2 text-black">
+                      <label
+                        className="block text-sm font-medium mb-2"
+                        style={{ color: "#161616" }}
+                      >
                         Послуга
                       </label>
-                      <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                      <select
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent"
+                        style={{ "--tw-ring-color": "#2d4640" } as any}
+                      >
                         <option>Лікувальний масаж</option>
                         <option>Реабілітація</option>
                         <option>Лікування сколіозу</option>
@@ -441,16 +635,29 @@ const Index = () => {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2 text-black">
+                      <label
+                        className="block text-sm font-medium mb-2"
+                        style={{ color: "#161616" }}
+                      >
                         Повідомлення
                       </label>
                       <textarea
                         rows={4}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent"
+                        style={{ "--tw-ring-color": "#2d4640" } as any}
                         placeholder="Опишіть вашу проблему (необов'язково)"
                       />
                     </div>
-                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
+                    <Button
+                      className="w-full text-white transition-colors"
+                      style={{ backgroundColor: "#2d4640" }}
+                      onMouseEnter={(e) =>
+                        (e.target.style.backgroundColor = "#1f332f")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.target.style.backgroundColor = "#2d4640")
+                      }
+                    >
                       <MessageCircle className="w-5 h-5 mr-2" />
                       Надіслати заявку
                     </Button>
@@ -463,28 +670,39 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-black text-white">
+      <footer
+        className="py-8 text-white"
+        style={{ backgroundColor: "#161616" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <Logo size="sm" showText={false} className="text-white" />
+              <Logo
+                size="sm"
+                showText={false}
+                className="text-white"
+                style={{ color: "#2d4640" }}
+              />
               <span className="text-lg font-semibold">tvoya.opora.te</span>
             </div>
 
             <div className="text-center md:text-right">
-              <p className="text-gray-400 text-sm">
+              <p className="text-sm" style={{ color: "#9a9c97" }}>
                 © 2025 tvoya.opora.te. Усі права захищені.
               </p>
-              <p className="text-gray-400 text-sm">
+              <p className="text-sm" style={{ color: "#9a9c97" }}>
                 МАСАЖ | РЕАБІЛІТАЦІЯ | СКОЛІОЗ | ТЕРНОПІЛЬ
               </p>
             </div>
           </div>
 
-          <Separator className="my-6 bg-gray-700" />
+          <Separator
+            className="my-6"
+            style={{ backgroundColor: "#9a9c97", opacity: 0.3 }}
+          />
 
           <div className="text-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-sm" style={{ color: "#9a9c97" }}>
               Здоров'я вашої спини - наша турбота 💚
             </p>
           </div>
