@@ -28,8 +28,8 @@ import {
 const serviceProviders = [
   {
     id: 1,
-    name: "Олена Сидорова",
-    title: "Провідний спеціаліст з масажу",
+    name: "Сергій Калмазан",
+    title: "Лікар ортопед-травматолог | вертебролог",
     subtitle: "Сертифікований масажист-реабілітолог",
     experience: "9 років досвіду",
     specialization: "Лікувальний масаж та сколіоз",
@@ -304,7 +304,7 @@ const ServiceProviderCarousel = () => {
                         </div>
                       ))}
                     </div>
-
+{/* 
                     <div className="pt-4">
                       <a
                         href="https://www.instagram.com/tvoya.opora.te/"
@@ -321,11 +321,13 @@ const ServiceProviderCarousel = () => {
                           e.target.style.color = "#2d4640";
                         }}
                       >
-                        <Instagram className="w-5 h-5 mr-2" />
+                        {/* <Instagram className="w-5 h-5 mr-2" />
                         Дізнатися більше про спеціаліста
-                        <ExternalLink className="w-4 h-4 ml-2" />
+                        <ExternalLink className="w-4 h-4 ml-2" /> 
                       </a>
-                    </div>
+                    </div> 
+                    */}
+
                   </div>
                 </div>
               </div>
@@ -386,11 +388,6 @@ const ServiceProviderCarousel = () => {
       </div>
 
       {/* Provider Counter */}
-      <div className="text-center mt-4">
-        <p className="text-sm" style={{ color: "#9a9c97" }}>
-          {currentIndex + 1} з {serviceProviders.length} спеціалістів
-        </p>
-      </div>
     </div>
   );
 };
@@ -419,14 +416,15 @@ const Index = () => {
         window.location.href,
         "tvoya.opora.te - Масаж та Реабілітація",
       );
-    } else {
-      // Modern browsers - show instruction
-      const shortcut =
-        navigator.userAgent.indexOf("Mac") !== -1 ? "Cmd+D" : "Ctrl+D";
-      alert(
-        `Щоб додати в закладки, натисніть ${shortcut} або використайте меню браузера`,
-      );
-    }
+    } 
+    // else {
+    //   // Modern browsers - show instruction
+    //   const shortcut =
+    //     navigator.userAgent.indexOf("Mac") !== -1 ? "Cmd+D" : "Ctrl+D";
+    //   alert(
+    //     `Щоб додати в закладки, натисніть ${shortcut} або використайте меню браузера`,
+    //   );
+    // }
   };
 
   // Inject animation styles
@@ -722,7 +720,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="text-center p-6 border-gray-200">
               <CardContent className="space-y-4">
                 <Award
@@ -764,21 +762,6 @@ const Index = () => {
                 </h3>
                 <p className="text-sm" style={{ color: "#9a9c97" }}>
                   Сертифіковані спеціалісти
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center p-6 border-gray-200">
-              <CardContent className="space-y-4">
-                <MapPin
-                  className="w-12 h-12 mx-auto"
-                  style={{ color: "#2d4640" }}
-                />
-                <h3 className="font-semibold" style={{ color: "#161616" }}>
-                  Тернопіль
-                </h3>
-                <p className="text-sm" style={{ color: "#9a9c97" }}>
-                  Зручне розташування у центрі міста
                 </p>
               </CardContent>
             </Card>
@@ -831,7 +814,7 @@ const Index = () => {
                         Лікувальний масаж
                       </h3>
                       <p style={{ color: "#9a9c97" }}>
-                        Професійн��й підхід до відновлення здоров'я
+                        Професійний підхід до відновлення здоров'я
                       </p>
                     </div>
                   </div>
@@ -1163,212 +1146,10 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Pricing Card 1 - Лікувальний масаж */}
-            <Card className="relative overflow-hidden border-gray-200 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8">
-                <div className="text-center">
-                  <div
-                    className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center"
-                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
-                  >
-                    <Heart className="w-8 h-8" style={{ color: "#2d4640" }} />
-                  </div>
-                  <h3
-                    className="text-xl font-bold mb-2"
-                    style={{ color: "#161616" }}
-                  >
-                    Лікувальний масаж
-                  </h3>
-                  <p className="mb-6" style={{ color: "#9a9c97" }}>
-                    Професійний лікувальний масаж спини та шиї
-                  </p>
-
-                  <div className="space-y-4 mb-8">
-                    <div className="flex justify-between items-center">
-                      <span style={{ color: "#161616" }}>1 сеанс (60 хв)</span>
-                      <span className="font-bold" style={{ color: "#2d4640" }}>
-                        500 грн
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span style={{ color: "#161616" }}>Курс 5 сеансів</span>
-                      <span className="font-bold" style={{ color: "#2d4640" }}>
-                        2200 грн
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span style={{ color: "#161616" }}>Курс 10 сеан��ів</span>
-                      <span className="font-bold" style={{ color: "#2d4640" }}>
-                        4000 грн
-                      </span>
-                    </div>
-                  </div>
-
-                  <a
-                    href="https://www.instagram.com/tvoya.opora.te/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center px-6 py-3 rounded-lg border transition-colors"
-                    style={{ borderColor: "#2d4640", color: "#2d4640" }}
-                    onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = "#2d4640";
-                      e.target.style.color = "white";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = "transparent";
-                      e.target.style.color = "#2d4640";
-                    }}
-                  >
-                    <Instagram className="w-5 h-5 mr-2" />
-                    Записатися
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Pricing Card 2 - Реабілітація */}
-            <Card className="relative overflow-hidden border-gray-200 hover:shadow-lg transition-shadow duration-300">
-              <div
-                className="absolute top-0 right-0 bg-gradient-to-l from-green-500 to-blue-500 text-white px-4 py-2 text-sm font-medium"
-                style={{
-                  clipPath: "polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                }}
-              >
-                Популярне
-              </div>
-              <CardContent className="p-8">
-                <div className="text-center">
-                  <div
-                    className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center"
-                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
-                  >
-                    <Users className="w-8 h-8" style={{ color: "#2d4640" }} />
-                  </div>
-                  <h3
-                    className="text-xl font-bold mb-2"
-                    style={{ color: "#161616" }}
-                  >
-                    Реабілітація
-                  </h3>
-                  <p className="mb-6" style={{ color: "#9a9c97" }}>
-                    Комплексна програма відновлення
-                  </p>
-
-                  <div className="space-y-4 mb-8">
-                    <div className="flex justify-between items-center">
-                      <span style={{ color: "#161616" }}>1 сеанс (90 хв)</span>
-                      <span className="font-bold" style={{ color: "#2d4640" }}>
-                        700 грн
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span style={{ color: "#161616" }}>Курс 5 сеансів</span>
-                      <span className="font-bold" style={{ color: "#2d4640" }}>
-                        3200 грн
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span style={{ color: "#161616" }}>Курс 10 сеансів</span>
-                      <span className="font-bold" style={{ color: "#2d4640" }}>
-                        6000 грн
-                      </span>
-                    </div>
-                  </div>
-
-                  <a
-                    href="https://www.instagram.com/tvoya.opora.te/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center px-6 py-3 rounded-lg transition-colors text-white"
-                    style={{ backgroundColor: "#2d4640" }}
-                    onMouseEnter={(e) =>
-                      (e.target.style.backgroundColor = "#1f332f")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.target.style.backgroundColor = "#2d4640")
-                    }
-                  >
-                    <Instagram className="w-5 h-5 mr-2" />
-                    Записатися
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Pricing Card 3 - Сколіоз */}
-            <Card className="relative overflow-hidden border-gray-200 hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8">
-                <div className="text-center">
-                  <div
-                    className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center"
-                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
-                  >
-                    <Award className="w-8 h-8" style={{ color: "#2d4640" }} />
-                  </div>
-                  <h3
-                    className="text-xl font-bold mb-2"
-                    style={{ color: "#161616" }}
-                  >
-                    Лікування сколіозу
-                  </h3>
-                  <p className="mb-6" style={{ color: "#9a9c97" }}>
-                    Спеціалізована терапія корекції хребта
-                  </p>
-
-                  <div className="space-y-4 mb-8">
-                    <div className="flex justify-between items-center">
-                      <span style={{ color: "#161616" }}>1 сеанс (75 хв)</span>
-                      <span className="font-bold" style={{ color: "#2d4640" }}>
-                        600 грн
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span style={{ color: "#161616" }}>Курс 8 сеансів</span>
-                      <span className="font-bold" style={{ color: "#2d4640" }}>
-                        4500 грн
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span style={{ color: "#161616" }}>Курс 15 сеансів</span>
-                      <span className="font-bold" style={{ color: "#2d4640" }}>
-                        8000 грн
-                      </span>
-                    </div>
-                  </div>
-
-                  <a
-                    href="https://www.instagram.com/tvoya.opora.te/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center px-6 py-3 rounded-lg border transition-colors"
-                    style={{ borderColor: "#2d4640", color: "#2d4640" }}
-                    onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = "#2d4640";
-                      e.target.style.color = "white";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = "transparent";
-                      e.target.style.color = "#2d4640";
-                    }}
-                  >
-                    <Instagram className="w-5 h-5 mr-2" />
-                    Записатися
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
 
           {/* Additional Info */}
           <div className="mt-12 text-center">
             <div className="bg-white rounded-xl p-8 shadow-sm max-w-4xl mx-auto">
-              <h3
-                className="text-xl font-bold mb-4"
-                style={{ color: "#161616" }}
-              >
-                Додаткова інформація
-              </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="text-left space-y-2">
                   <div className="flex items-center space-x-2">
@@ -1377,7 +1158,7 @@ const Index = () => {
                       style={{ color: "#2d4640" }}
                     />
                     <span style={{ color: "#161616" }}>
-                      Безкоштовна консультація
+                      Огляд у спеціаліста - 550 ₴
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -1386,7 +1167,7 @@ const Index = () => {
                       style={{ color: "#2d4640" }}
                     />
                     <span style={{ color: "#161616" }}>
-                      Знижка 10% на курси
+                      Масаж спини - 550 ₴ | 30 хв
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -1395,7 +1176,16 @@ const Index = () => {
                       style={{ color: "#2d4640" }}
                     />
                     <span style={{ color: "#161616" }}>
-                      Подарункові сертифікати
+                      Масаж всього тіла (ніжки та спинка) - 1 050 ₴ | 90 хв
+                    </span>
+                  </div>
+                    <div className="flex items-center space-x-2">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Масаж всього тіла (ніжки, руки, спинка, голова) - 1250 ₴ | 2 год
                     </span>
                   </div>
                 </div>
@@ -1406,7 +1196,7 @@ const Index = () => {
                       style={{ color: "#2d4640" }}
                     />
                     <span style={{ color: "#161616" }}>
-                      Домашні візити (+200 грн)
+                      Масаж обличчя і зони декольте -  850 ₴ | 60 хв
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -1415,16 +1205,34 @@ const Index = () => {
                       style={{ color: "#2d4640" }}
                     />
                     <span style={{ color: "#161616" }}>
-                      Студентам знижка 15%
+                      Антицелюлітний масаж -  800 ₴ | 60 хв
                     </span>
                   </div>
-                  <div className="flex items-center space-x-2">
+                                    <div className="flex items-center space-x-2">
                     <CheckCircle
                       className="w-5 h-5"
                       style={{ color: "#2d4640" }}
                     />
                     <span style={{ color: "#161616" }}>
-                      Гнучкий графік оплати
+                      Заняття з інструктором - 550 ₴ | 60 хв
+                    </span>
+                  </div>
+                                    <div className="flex items-center space-x-2">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Тейпування однієї зони - 200 ₴
+                    </span>
+                  </div>
+                                    <div className="flex items-center space-x-2">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Параартикулярна блокада (без вартості медикаментів) - 350 ₴
                     </span>
                   </div>
                 </div>
@@ -1503,11 +1311,11 @@ const Index = () => {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
-                      О
+                      А
                     </div>
                     <div className="ml-3">
                       <p className="font-semibold" style={{ color: "#161616" }}>
-                        Оксана Петренко
+                        Анастасія
                       </p>
                       <div className="flex">
                         {[...Array(5)].map((_, i) => (
@@ -1524,9 +1332,7 @@ const Index = () => {
                   </p>
                 </div>
                 <p style={{ color: "#9a9c97" }}>
-                  "Дуже кваліфіковані спеціалісти! Після курсу масажу для спини
-                  відчуваю себе набагато краще. Індивідуальний підхід до кожного
-                  пацієнта. Рекомендую!"
+                  "Дуже довго обирала клініку, адже з обережністю ставлюся до вибору лікарів/масажистів. І рада, що не прогадала. Дуже круте відношення до клієнтів, а головне - результат. Після 3 процедури антицелюлітного масажу вже були перші зміни: шкіра стала більш гладкою і підтягнутою. Окрім антицелюлітного масажу, тут пропонують багато інших видів процедур — як лікувальних, так і розслабляючих. Дуже вдячна за професіоналізм і чудовий результат! Тепер я почуваюся більш впевненою в собі. Тому любі хлопці і дівчата, моя щира рекомендація👍"
                 </p>
               </CardContent>
             </Card>
@@ -1537,11 +1343,43 @@ const Index = () => {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-semibold">
-                      А
+                      І
                     </div>
                     <div className="ml-3">
                       <p className="font-semibold" style={{ color: "#161616" }}>
-                        Андрій Коваленко
+                        Ілона Щепна
+                      </p>
+                      <div className="flex">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 text-yellow-400 fill-current"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-xs" style={{ color: "#9a9c97" }}>
+                    4 тижні тому
+                  </p>
+                </div>
+                <p style={{ color: "#9a9c97" }}>
+                  "Після кількох сеансів масажу в «Твоїй опорі» нарешті відчула полегшення у спині. Дуже вдячна за такий комплексний підхід, рекомендую цю клініку всім, хто шукає якісний масаж, реабілітацію та позитивні відчуття."
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Review 3 */}
+            <Card className="border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-semibold">
+                      О
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-semibold" style={{ color: "#161616" }}>
+                        Ольга Борак
                       </p>
                       <div className="flex">
                         {[...Array(5)].map((_, i) => (
@@ -1558,107 +1396,10 @@ const Index = () => {
                   </p>
                 </div>
                 <p style={{ color: "#9a9c97" }}>
-                  "Професійний підхід до лікування сколіозу. Вже після кількох
-                  сеансів помітні покращення. Зручне розташування в центрі
-                  Тернополя. Дякую команді!"
+                  "Дуже вдячна за масаж спини - після двох сеансів перестав тягнути поперек. Приємна атмосфера і професійний підхід. Рекомндую 'Твою опору'!!"
                 </p>
               </CardContent>
             </Card>
-
-            {/* Review 3 */}
-            <Card className="border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-semibold">
-                      М
-                    </div>
-                    <div className="ml-3">
-                      <p className="font-semibold" style={{ color: "#161616" }}>
-                        Марина Іванова
-                      </p>
-                      <div className="flex">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="w-4 h-4 text-yellow-400 fill-current"
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-xs" style={{ color: "#9a9c97" }}>
-                    3 тижні тому
-                  </p>
-                </div>
-                <p style={{ color: "#9a9c97" }}>
-                  "Відмінна реабілітаційна програма після травми хребта. Уважні
-                  спеціалісти, сучасне обладнання. Результат перевищив
-                  очікування. 100% рекомендую!"
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Google Reviews Widget Alternative */}
-          <div className="mt-12 text-center">
-            <div className="bg-gray-50 rounded-xl p-8 max-w-4xl mx-auto">
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
-                  <span className="text-white font-bold text-xl">G</span>
-                </div>
-                <div className="text-left">
-                  <h3
-                    className="font-bold text-lg"
-                    style={{ color: "#161616" }}
-                  >
-                    Google Reviews
-                  </h3>
-                  <p style={{ color: "#9a9c97" }}>
-                    Оцініть нашу роботу та поділіться своїм досвідом
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <a
-                  href="https://maps.app.goo.gl/s73LiDStMvvvS8EC8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center px-6 py-3 rounded-lg border transition-colors"
-                  style={{ borderColor: "#2d4640", color: "#2d4640" }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "#2d4640";
-                    e.target.style.color = "white";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "transparent";
-                    e.target.style.color = "#2d4640";
-                  }}
-                >
-                  <Star className="w-5 h-5 mr-2" />
-                  Переглянути всі відгуки
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </a>
-
-                <a
-                  href="https://maps.app.goo.gl/s73LiDStMvvvS8EC8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center px-6 py-3 rounded-lg transition-colors text-white"
-                  style={{ backgroundColor: "#2d4640" }}
-                  onMouseEnter={(e) =>
-                    (e.target.style.backgroundColor = "#1f332f")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.target.style.backgroundColor = "#2d4640")
-                  }
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Залишити відгук
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -1694,19 +1435,6 @@ const Index = () => {
                     <p className="font-medium">Адреса</p>
                     <p style={{ color: "rgba(255, 255, 255, 0.8)" }}>
                       Тернопіль, Україна
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <Clock
-                    className="w-6 h-6"
-                    style={{ color: "rgba(255, 255, 255, 0.6)" }}
-                  />
-                  <div>
-                    <p className="font-medium">Режим роботи</p>
-                    <p style={{ color: "rgba(255, 255, 255, 0.8)" }}>
-                      Пн-Пт: 9:00-18:00
                     </p>
                   </div>
                 </div>
