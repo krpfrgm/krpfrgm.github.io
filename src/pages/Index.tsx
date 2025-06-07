@@ -59,13 +59,13 @@ const serviceProviders = [
   },
   {
     id: 2,
-    name: "Андрій Коваленко",
+    name: "Lilia Shemchuk",
     title: "Спеціаліст з реабілітації",
     subtitle: "Фізіотерапевт-реабілітолог",
     experience: "7 років досвіду",
     specialization: "Реабілітація та фізіотерапія",
     gradient: "from-blue-50 to-purple-50",
-    imageUrl: "/images/Serhii.jpg", // Add your image here
+    imageUrl: "/images/Lilia.jpg", // Add your image here
     description:
       "Експерт з відновлювальної медицини та спортивної реабілітації. Працює з пацієнтами після травм та операцій.",
     achievements: [
@@ -83,34 +83,6 @@ const serviceProviders = [
         icon: <CheckCircle className="w-6 h-6" style={{ color: "#2d4640" }} />,
         title: "Сучасні методики",
         description: "Використання найновіших технологій відновлення",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Марія Петренко",
-    title: "Дитячий спеціаліст",
-    subtitle: "Педіатричний масажист",
-    experience: "6 років досвіду",
-    specialization: "Дитячий масаж та розвиток",
-    gradient: "from-pink-50 to-orange-50",
-    description:
-      "Спеціалізується на роботі з дітьми від народження до 18 років. Експерт з профілактики та лікування дитячих порушень постави.",
-    achievements: [
-      {
-        icon: <Heart className="w-6 h-6" style={{ color: "#2d4640" }} />,
-        title: "6+ років досвіду",
-        description: "Робота з дітьми різного віку та їх особливостями",
-      },
-      {
-        icon: <Users className="w-6 h-6" style={{ color: "#2d4640" }} />,
-        title: "Дитяча спеціалізація",
-        description: "Профілактика та корекція порушень постави у дітей",
-      },
-      {
-        icon: <Award className="w-6 h-6" style={{ color: "#2d4640" }} />,
-        title: "Розвивальний масаж",
-        description: "Стимуляція розвитку та зміцнення м'язової системи",
       },
     ],
   },
