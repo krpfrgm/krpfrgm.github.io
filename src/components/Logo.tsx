@@ -31,67 +31,26 @@ const Logo = ({ className = "", size = "md", showText = true }: LogoProps) => {
           className="text-black"
         />
 
-        {/* Spine symbol - flowing vertebrae design */}
+        {/* Spine symbol - simplified design matching the original */}
         <g fill="white">
-          {/* Stylized vertebrae with smooth flowing design */}
-          <path
-            d="M50 15
-                   C 45 17, 40 19, 42 22
-                   C 44 25, 46 24, 50 24
-                   C 54 24, 56 25, 58 22
-                   C 60 19, 55 17, 50 15 Z"
-          />
-
-          <path
-            d="M50 22
-                   C 44 24, 38 26, 40 30
-                   C 42 34, 45 33, 50 33
-                   C 55 33, 58 34, 60 30
-                   C 62 26, 56 24, 50 22 Z"
-          />
-
-          <path
-            d="M50 31
-                   C 43 33, 36 35, 38 40
-                   C 40 45, 44 44, 50 44
-                   C 56 44, 60 45, 62 40
-                   C 64 35, 57 33, 50 31 Z"
-          />
-
-          <path
-            d="M50 42
-                   C 42 44, 34 46, 36 52
-                   C 38 58, 43 57, 50 57
-                   C 57 57, 62 58, 64 52
-                   C 66 46, 58 44, 50 42 Z"
-          />
-
-          <path
-            d="M50 55
-                   C 43 57, 36 59, 38 64
-                   C 40 69, 44 68, 50 68
-                   C 56 68, 60 69, 62 64
-                   C 64 59, 57 57, 50 55 Z"
-          />
-
-          <path
-            d="M50 66
-                   C 44 68, 38 70, 40 74
-                   C 42 78, 45 77, 50 77
-                   C 55 77, 58 78, 60 74
-                   C 62 70, 56 68, 50 66 Z"
-          />
-
-          <path
-            d="M50 75
-                   C 45 77, 40 79, 42 82
-                   C 44 85, 46 84, 50 84
-                   C 54 84, 56 85, 58 82
-                   C 60 79, 55 77, 50 75 Z"
-          />
-
           {/* Central spinal column */}
-          <path d="M49.5 15 Q50 50 49.5 84 Q50 84 50.5 84 Q50 50 50.5 15 Z" />
+          <rect x="48.5" y="15" width="3" height="70" rx="1.5" />
+
+          {/* Vertebrae processes - alternating left and right */}
+          {/* Right side processes */}
+          <path d="M51.5 18 L62 16 Q64 16 64 18 Q64 20 62 20 L51.5 22 Z" />
+          <path d="M51.5 30 L62 28 Q64 28 64 30 Q64 32 62 32 L51.5 34 Z" />
+          <path d="M51.5 42 L62 40 Q64 40 64 42 Q64 44 62 44 L51.5 46 Z" />
+          <path d="M51.5 54 L62 52 Q64 52 64 54 Q64 56 62 56 L51.5 58 Z" />
+          <path d="M51.5 66 L62 64 Q64 64 64 66 Q64 68 62 68 L51.5 70 Z" />
+          <path d="M51.5 78 L62 76 Q64 76 64 78 Q64 80 62 80 L51.5 82 Z" />
+
+          {/* Left side processes */}
+          <path d="M48.5 24 L38 22 Q36 22 36 24 Q36 26 38 26 L48.5 28 Z" />
+          <path d="M48.5 36 L38 34 Q36 34 36 36 Q36 38 38 38 L48.5 40 Z" />
+          <path d="M48.5 48 L38 46 Q36 46 36 48 Q36 50 38 50 L48.5 52 Z" />
+          <path d="M48.5 60 L38 58 Q36 58 36 60 Q36 62 38 62 L48.5 64 Z" />
+          <path d="M48.5 72 L38 70 Q36 70 36 72 Q36 74 38 74 L48.5 76 Z" />
         </g>
       </svg>
 
