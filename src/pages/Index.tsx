@@ -404,6 +404,31 @@ const Index = () => {
     }
   `;
 
+  // Bookmark functionality
+  const addToBookmarks = () => {
+    if (window.sidebar && window.sidebar.addPanel) {
+      // Firefox
+      window.sidebar.addPanel(
+        "tvoya.opora.te - Масаж та Реабілітація",
+        window.location.href,
+        "",
+      );
+    } else if (window.external && window.external.AddFavorite) {
+      // Internet Explorer
+      window.external.AddFavorite(
+        window.location.href,
+        "tvoya.opora.te - Масаж та Реабілітація",
+      );
+    } else {
+      // Modern browsers - show instruction
+      const shortcut =
+        navigator.userAgent.indexOf("Mac") !== -1 ? "Cmd+D" : "Ctrl+D";
+      alert(
+        `Щоб додати в закладки, натисніть ${shortcut} або використайте меню браузера`,
+      );
+    }
+  };
+
   // Inject animation styles
   React.useEffect(() => {
     const style = document.createElement("style");
@@ -425,7 +450,7 @@ const Index = () => {
     },
     {
       title: "Реабілітація",
-      description: "Комплексні програми відновлення піс��я травм та операцій",
+      description: "Комплексні програми відновлення після травм та операцій",
       icon: <Users className="w-8 h-8" style={{ color: "#2d4640" }} />,
     },
     {
@@ -477,13 +502,13 @@ const Index = () => {
                 Послуги
               </button>
               <button
-                onClick={() => scrollToSection("highlights")}
+                onClick={() => scrollToSection("pricing")}
                 className="transition-colors"
                 style={{ color: "#9a9c97" }}
                 onMouseEnter={(e) => (e.target.style.color = "#2d4640")}
                 onMouseLeave={(e) => (e.target.style.color = "#9a9c97")}
               >
-                Інформація
+                Ціни
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
@@ -621,13 +646,14 @@ const Index = () => {
                   style={{ color: "#2d4640" }}
                 />
               </div>
-              {/* Animated floating heart */}
+              {/* Animated floating heart - Bookmark button */}
               <div
                 className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-xl group"
                 style={{
                   animation: "float 3s ease-in-out infinite",
                   animationDelay: "0s",
                 }}
+                onClick={addToBookmarks}
                 onMouseEnter={(e) => {
                   e.target.style.transform = "scale(1.2) translateY(-5px)";
                   e.target.style.boxShadow =
@@ -638,16 +664,18 @@ const Index = () => {
                   e.target.style.boxShadow =
                     "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
                 }}
+                title="Додати в закладки"
               >
                 <Heart className="w-8 h-8 text-red-500 group-hover:text-red-600 transition-colors duration-300" />
               </div>
-              {/* Animated floating award */}
+              {/* Animated floating award - Bookmark button */}
               <div
                 className="absolute -bottom-4 -left-4 bg-white rounded-full p-3 shadow-lg cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-xl group"
                 style={{
                   animation: "float 3s ease-in-out infinite",
                   animationDelay: "1.5s",
                 }}
+                onClick={addToBookmarks}
                 onMouseEnter={(e) => {
                   e.target.style.transform = "scale(1.2) translateY(-5px)";
                   e.target.style.boxShadow =
@@ -658,6 +686,7 @@ const Index = () => {
                   e.target.style.boxShadow =
                     "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
                 }}
+                title="Додати в закладки"
               >
                 <Award
                   className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
@@ -719,7 +748,7 @@ const Index = () => {
                   502+ клієнтів
                 </h3>
                 <p className="text-sm" style={{ color: "#9a9c97" }}>
-                  Дові��а сотень задоволених клієнтів
+                  Довіра сотень задоволених клієнтів
                 </p>
               </CardContent>
             </Card>
@@ -763,10 +792,10 @@ const Index = () => {
           <ServiceProviderCarousel />
         </div>
       </section>
-      {/* Services Section */}
+      {/* Enhanced Services Section */}
       <section id="services" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2
               className="text-3xl font-bold mb-4"
               style={{ color: "#161616" }}
@@ -778,34 +807,84 @@ const Index = () => {
               style={{ color: "#9a9c97" }}
             >
               Комплексний підхід до лікування та профілактики захворювань
-              опорно-рухового апарату
+              опорно-рухового апарату з використанням сучасних методик
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-lg transition-shadow duration-300 border-gray-200"
-              >
-                <CardContent className="p-8">
-                  <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {service.icon}
+          <div className="space-y-16">
+            {/* Service 1 - Лікувальний масаж */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div
+                      className="w-16 h-16 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                    >
+                      <Heart className="w-8 h-8" style={{ color: "#2d4640" }} />
+                    </div>
+                    <div>
+                      <h3
+                        className="text-2xl font-bold"
+                        style={{ color: "#161616" }}
+                      >
+                        Лікувальний масаж
+                      </h3>
+                      <p style={{ color: "#9a9c97" }}>
+                        Професійн��й підхід до відновлення здоров'я
+                      </p>
+                    </div>
                   </div>
-                  <h3
-                    className="text-xl font-semibold mb-3"
-                    style={{ color: "#161616" }}
-                  >
-                    {service.title}
-                  </h3>
-                  <p className="mb-4" style={{ color: "#9a9c97" }}>
-                    {service.description}
+
+                  <p className="text-lg" style={{ color: "#9a9c97" }}>
+                    Спеціалізований лікувальний масаж для лікування захворювань
+                    опорно-рухового апарату. Використовуємо класичні та сучасні
+                    методики для максимального ефекту.
                   </p>
-                  <Button
-                    variant="outline"
-                    className="w-full transition-colors"
+
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <CheckCircle
+                        className="w-5 h-5"
+                        style={{ color: "#2d4640" }}
+                      />
+                      <span style={{ color: "#161616" }}>
+                        Класичний лікувальний масаж
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <CheckCircle
+                        className="w-5 h-5"
+                        style={{ color: "#2d4640" }}
+                      />
+                      <span style={{ color: "#161616" }}>
+                        Сегментарний масаж
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <CheckCircle
+                        className="w-5 h-5"
+                        style={{ color: "#2d4640" }}
+                      />
+                      <span style={{ color: "#161616" }}>Точковий масаж</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <CheckCircle
+                        className="w-5 h-5"
+                        style={{ color: "#2d4640" }}
+                      />
+                      <span style={{ color: "#161616" }}>
+                        Масаж при остеохондрозі
+                      </span>
+                    </div>
+                  </div>
+
+                  <a
+                    href="https://www.instagram.com/tvoya.opora.te/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 rounded-lg border transition-colors"
                     style={{ borderColor: "#2d4640", color: "#2d4640" }}
-                    onClick={() => scrollToSection("contact")}
                     onMouseEnter={(e) => {
                       e.target.style.backgroundColor = "#2d4640";
                       e.target.style.color = "white";
@@ -815,18 +894,256 @@ const Index = () => {
                       e.target.style.color = "#2d4640";
                     }}
                   >
-                    Дізнатися більше
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                    <Instagram className="w-5 h-5 mr-2" />
+                    Записатися на масаж
+                  </a>
+                </div>
+              </div>
+
+              <div className="order-1 lg:order-2">
+                <div className="relative overflow-hidden rounded-2xl shadow-lg">
+                  <div
+                    className="aspect-[4/3] bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center"
+                    style={{ minHeight: "300px" }}
+                  >
+                    <div className="text-center">
+                      <div
+                        className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: "#2d4640" }}
+                      >
+                        <Heart className="w-12 h-12 text-white" />
+                      </div>
+                      <p className="text-sm" style={{ color: "#9a9c97" }}>
+                        Фото лікувального масажу
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Service 2 - Реабілітація */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="relative overflow-hidden rounded-2xl shadow-lg">
+                <div
+                  className="aspect-[4/3] bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center"
+                  style={{ minHeight: "300px" }}
+                >
+                  <div className="text-center">
+                    <div
+                      className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg"
+                      style={{ backgroundColor: "#2d4640" }}
+                    >
+                      <Users className="w-12 h-12 text-white" />
+                    </div>
+                    <p className="text-sm" style={{ color: "#9a9c97" }}>
+                      Фото реабілітаційних процедур
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div
+                    className="w-16 h-16 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                  >
+                    <Users className="w-8 h-8" style={{ color: "#2d4640" }} />
+                  </div>
+                  <div>
+                    <h3
+                      className="text-2xl font-bold"
+                      style={{ color: "#161616" }}
+                    >
+                      Реабілітація
+                    </h3>
+                    <p style={{ color: "#9a9c97" }}>
+                      Відновлення після травм та операцій
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-lg" style={{ color: "#9a9c97" }}>
+                  Комплексні програми відновлення після травм, операцій та
+                  захворювань. Індивідуальний підхід до кожного пацієнта з
+                  урахуванням особливостей організму.
+                </p>
+
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Реабілітація після травм
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Відновлення після операцій
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Лікувальна фізкультура
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>Кінезіотерапія</span>
+                  </div>
+                </div>
+
+                <a
+                  href="https://www.instagram.com/tvoya.opora.te/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 rounded-lg border transition-colors"
+                  style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = "#2d4640";
+                    e.target.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "transparent";
+                    e.target.style.color = "#2d4640";
+                  }}
+                >
+                  <Instagram className="w-5 h-5 mr-2" />
+                  Записатися на реабілітацію
+                </a>
+              </div>
+            </div>
+
+            {/* Service 3 - Лікування сколіозу */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div
+                      className="w-16 h-16 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                    >
+                      <Award className="w-8 h-8" style={{ color: "#2d4640" }} />
+                    </div>
+                    <div>
+                      <h3
+                        className="text-2xl font-bold"
+                        style={{ color: "#161616" }}
+                      >
+                        Лікування сколіозу
+                      </h3>
+                      <p style={{ color: "#9a9c97" }}>
+                        Спеціалізована терапія для корекції хребта
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="text-lg" style={{ color: "#9a9c97" }}>
+                    Професійне лікування сколіозу з використанням авторських
+                    методик. Працюємо з пацієнтами різного віку - від дітей до
+                    дорослих.
+                  </p>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <CheckCircle
+                        className="w-5 h-5"
+                        style={{ color: "#2d4640" }}
+                      />
+                      <span style={{ color: "#161616" }}>Корекція постави</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <CheckCircle
+                        className="w-5 h-5"
+                        style={{ color: "#2d4640" }}
+                      />
+                      <span style={{ color: "#161616" }}>
+                        Лікування сколіозу 1-3 ступеня
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <CheckCircle
+                        className="w-5 h-5"
+                        style={{ color: "#2d4640" }}
+                      />
+                      <span style={{ color: "#161616" }}>
+                        Профілактика у дітей
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <CheckCircle
+                        className="w-5 h-5"
+                        style={{ color: "#2d4640" }}
+                      />
+                      <span style={{ color: "#161616" }}>
+                        Комплексна терапія
+                      </span>
+                    </div>
+                  </div>
+
+                  <a
+                    href="https://www.instagram.com/tvoya.opora.te/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 rounded-lg border transition-colors"
+                    style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                    onMouseEnter={(e) => {
+                      e.target.style.backgroundColor = "#2d4640";
+                      e.target.style.color = "white";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.backgroundColor = "transparent";
+                      e.target.style.color = "#2d4640";
+                    }}
+                  >
+                    <Instagram className="w-5 h-5 mr-2" />
+                    Записатися на лікування
+                  </a>
+                </div>
+              </div>
+
+              <div className="order-1 lg:order-2">
+                <div className="relative overflow-hidden rounded-2xl shadow-lg">
+                  <div
+                    className="aspect-[4/3] bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center"
+                    style={{ minHeight: "300px" }}
+                  >
+                    <div className="text-center">
+                      <div
+                        className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg"
+                        style={{ backgroundColor: "#2d4640" }}
+                      >
+                        <Award className="w-12 h-12 text-white" />
+                      </div>
+                      <p className="text-sm" style={{ color: "#9a9c97" }}>
+                        Фото корекції сколіозу
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Story Highlights Section */}
+      {/* Pricing Section */}
       <section
-        id="highlights"
+        id="pricing"
         className="py-16"
         style={{ backgroundColor: "#f8f9f9" }}
       >
@@ -836,194 +1153,283 @@ const Index = () => {
               className="text-3xl font-bold mb-4"
               style={{ color: "#161616" }}
             >
-              Корисна інформація
+              Ціни на послуги
             </h2>
             <p
               className="text-lg max-w-3xl mx-auto"
               style={{ color: "#9a9c97" }}
             >
-              Дізнайтеся більше про наші послуги т�� корисні поради
+              Доступні ціни на професійні послуги масажу та реабілітації
             </p>
           </div>
 
-          {/* Instagram Story Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Story 1 - Who, Where, What */}
-            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-all duration-300 cursor-pointer">
-              <div className="aspect-[9/16] bg-gradient-to-br from-green-50 to-green-100 relative overflow-hidden">
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                  <div className="mb-6">
-                    <Logo
-                      size="md"
-                      showText={false}
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Pricing Card 1 - Лікувальний масаж */}
+            <Card className="relative overflow-hidden border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-8">
+                <div className="text-center">
+                  <div
+                    className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center"
+                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                  >
+                    <Heart className="w-8 h-8" style={{ color: "#2d4640" }} />
+                  </div>
+                  <h3
+                    className="text-xl font-bold mb-2"
+                    style={{ color: "#161616" }}
+                  >
+                    Лікувальний масаж
+                  </h3>
+                  <p className="mb-6" style={{ color: "#9a9c97" }}>
+                    Професійний лікувальний масаж спини та шиї
+                  </p>
+
+                  <div className="space-y-4 mb-8">
+                    <div className="flex justify-between items-center">
+                      <span style={{ color: "#161616" }}>1 сеанс (60 хв)</span>
+                      <span className="font-bold" style={{ color: "#2d4640" }}>
+                        500 грн
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span style={{ color: "#161616" }}>Курс 5 сеансів</span>
+                      <span className="font-bold" style={{ color: "#2d4640" }}>
+                        2200 грн
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span style={{ color: "#161616" }}>Курс 10 сеан��ів</span>
+                      <span className="font-bold" style={{ color: "#2d4640" }}>
+                        4000 грн
+                      </span>
+                    </div>
+                  </div>
+
+                  <a
+                    href="https://www.instagram.com/tvoya.opora.te/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center px-6 py-3 rounded-lg border transition-colors"
+                    style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                    onMouseEnter={(e) => {
+                      e.target.style.backgroundColor = "#2d4640";
+                      e.target.style.color = "white";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.backgroundColor = "transparent";
+                      e.target.style.color = "#2d4640";
+                    }}
+                  >
+                    <Instagram className="w-5 h-5 mr-2" />
+                    Записатися
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Pricing Card 2 - Реабілітація */}
+            <Card className="relative overflow-hidden border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <div
+                className="absolute top-0 right-0 bg-gradient-to-l from-green-500 to-blue-500 text-white px-4 py-2 text-sm font-medium"
+                style={{
+                  clipPath: "polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                }}
+              >
+                Популярне
+              </div>
+              <CardContent className="p-8">
+                <div className="text-center">
+                  <div
+                    className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center"
+                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                  >
+                    <Users className="w-8 h-8" style={{ color: "#2d4640" }} />
+                  </div>
+                  <h3
+                    className="text-xl font-bold mb-2"
+                    style={{ color: "#161616" }}
+                  >
+                    Реабілітація
+                  </h3>
+                  <p className="mb-6" style={{ color: "#9a9c97" }}>
+                    Комплексна програма відновлення
+                  </p>
+
+                  <div className="space-y-4 mb-8">
+                    <div className="flex justify-between items-center">
+                      <span style={{ color: "#161616" }}>1 сеанс (90 хв)</span>
+                      <span className="font-bold" style={{ color: "#2d4640" }}>
+                        700 грн
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span style={{ color: "#161616" }}>Курс 5 сеансів</span>
+                      <span className="font-bold" style={{ color: "#2d4640" }}>
+                        3200 грн
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span style={{ color: "#161616" }}>Курс 10 сеансів</span>
+                      <span className="font-bold" style={{ color: "#2d4640" }}>
+                        6000 грн
+                      </span>
+                    </div>
+                  </div>
+
+                  <a
+                    href="https://www.instagram.com/tvoya.opora.te/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center px-6 py-3 rounded-lg transition-colors text-white"
+                    style={{ backgroundColor: "#2d4640" }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.backgroundColor = "#1f332f")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.backgroundColor = "#2d4640")
+                    }
+                  >
+                    <Instagram className="w-5 h-5 mr-2" />
+                    Записатися
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Pricing Card 3 - Сколіоз */}
+            <Card className="relative overflow-hidden border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-8">
+                <div className="text-center">
+                  <div
+                    className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center"
+                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                  >
+                    <Award className="w-8 h-8" style={{ color: "#2d4640" }} />
+                  </div>
+                  <h3
+                    className="text-xl font-bold mb-2"
+                    style={{ color: "#161616" }}
+                  >
+                    Лікування сколіозу
+                  </h3>
+                  <p className="mb-6" style={{ color: "#9a9c97" }}>
+                    Спеціалізована терапія корекції хребта
+                  </p>
+
+                  <div className="space-y-4 mb-8">
+                    <div className="flex justify-between items-center">
+                      <span style={{ color: "#161616" }}>1 сеанс (75 хв)</span>
+                      <span className="font-bold" style={{ color: "#2d4640" }}>
+                        600 грн
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span style={{ color: "#161616" }}>Курс 8 сеансів</span>
+                      <span className="font-bold" style={{ color: "#2d4640" }}>
+                        4500 грн
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span style={{ color: "#161616" }}>Курс 15 сеансів</span>
+                      <span className="font-bold" style={{ color: "#2d4640" }}>
+                        8000 грн
+                      </span>
+                    </div>
+                  </div>
+
+                  <a
+                    href="https://www.instagram.com/tvoya.opora.te/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center px-6 py-3 rounded-lg border transition-colors"
+                    style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                    onMouseEnter={(e) => {
+                      e.target.style.backgroundColor = "#2d4640";
+                      e.target.style.color = "white";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.backgroundColor = "transparent";
+                      e.target.style.color = "#2d4640";
+                    }}
+                  >
+                    <Instagram className="w-5 h-5 mr-2" />
+                    Записатися
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-12 text-center">
+            <div className="bg-white rounded-xl p-8 shadow-sm max-w-4xl mx-auto">
+              <h3
+                className="text-xl font-bold mb-4"
+                style={{ color: "#161616" }}
+              >
+                Додаткова інформація
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="text-left space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle
+                      className="w-5 h-5"
                       style={{ color: "#2d4640" }}
                     />
+                    <span style={{ color: "#161616" }}>
+                      Безкоштовна консультація
+                    </span>
                   </div>
-                  <div className="space-y-4">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-sm">
-                      <p
-                        className="text-sm font-medium"
-                        style={{ color: "#2d4640" }}
-                      >
-                        Хто це?
-                      </p>
-                    </div>
-                    <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-sm">
-                      <p
-                        className="text-sm font-medium"
-                        style={{ color: "#2d4640" }}
-                      >
-                        Де це?
-                      </p>
-                    </div>
-                    <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-sm">
-                      <p
-                        className="text-sm font-medium"
-                        style={{ color: "#2d4640" }}
-                      >
-                        Що це?
-                      </p>
-                    </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Знижка 10% на курси
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Подарункові сертифікати
+                    </span>
                   </div>
                 </div>
-                <div className="absolute top-4 right-4">
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-sm">📋</span>
+                <div className="text-left space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Домашні візити (+200 грн)
+                    </span>
                   </div>
-                </div>
-              </div>
-            </Card>
-
-            {/* Story 2 - Support and Foundation */}
-            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-all duration-300 cursor-pointer">
-              <div className="aspect-[9/16] bg-gradient-to-br from-blue-50 to-blue-100 relative overflow-hidden">
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                  <div className="w-24 h-32 bg-white/20 rounded-lg mb-4 flex items-center justify-center border-2 border-white/30">
-                    <div className="text-center">
-                      <div className="w-8 h-12 bg-white/40 rounded mx-auto mb-2"></div>
-                      <div className="space-y-1">
-                        {[...Array(5)].map((_, i) => (
-                          <div
-                            key={i}
-                            className="w-6 h-1 bg-white/50 rounded mx-auto"
-                          ></div>
-                        ))}
-                      </div>
-                    </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Студентам знижка 15%
+                    </span>
                   </div>
-                  <p
-                    className="text-sm font-medium text-center leading-relaxed"
-                    style={{ color: "#2d4640" }}
-                  >
-                    Ваша підтримка та
-                    <br />
-                    міцний фундамент
-                    <br />
-                    здоров'я
-                  </p>
-                </div>
-                <div className="absolute top-4 right-4">
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-sm">🏗️</span>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle
+                      className="w-5 h-5"
+                      style={{ color: "#2d4640" }}
+                    />
+                    <span style={{ color: "#161616" }}>
+                      Гнучкий графік оплати
+                    </span>
                   </div>
                 </div>
               </div>
-            </Card>
-
-            {/* Story 3 - Spine X-ray */}
-            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-all duration-300 cursor-pointer">
-              <div className="aspect-[9/16] bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                  <div className="w-16 h-32 bg-white/10 rounded-lg mb-4 flex items-center justify-center border border-white/20">
-                    <div className="text-center">
-                      <div className="w-4 h-16 bg-white/30 rounded mx-auto relative">
-                        {[...Array(7)].map((_, i) => (
-                          <div
-                            key={i}
-                            className="absolute w-6 h-2 bg-white/50 rounded left-1/2 transform -translate-x-1/2"
-                            style={{ top: `${i * 12 + 8}%` }}
-                          ></div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-white text-sm font-bold mb-2">
-                    ТВОЯ ОПОРА - ЦЕ ВІН ХРЕБЕТ
-                  </p>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                    <p className="text-white text-xs font-medium">ХРЕБЕТ</p>
-                  </div>
-                </div>
-                <div className="absolute top-4 right-4">
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-sm">🦴</span>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            {/* Story 4 - Neon Sign */}
-            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-all duration-300 cursor-pointer">
-              <div className="aspect-[9/16] bg-gradient-to-br from-green-800 to-green-900 relative overflow-hidden">
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                  <div className="mb-6 relative">
-                    <div
-                      className="text-lg font-bold px-4 py-2 rounded-lg border-2 relative overflow-hidden"
-                      style={{
-                        color: "#00ff88",
-                        borderColor: "#00ff88",
-                        textShadow:
-                          "0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88",
-                        boxShadow:
-                          "0 0 10px rgba(0, 255, 136, 0.3), inset 0 0 10px rgba(0, 255, 136, 0.1)",
-                      }}
-                    >
-                      tvoya.opora.te
-                      <div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-pulse"
-                        style={{ animation: "shimmer 2s infinite" }}
-                      ></div>
-                    </div>
-                  </div>
-                  <p className="text-white text-sm text-center leading-relaxed">
-                    Ми - клініка здорового
-                    <br />
-                    хребта у Тернополі
-                  </p>
-                </div>
-                <div className="absolute top-4 right-4">
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-sm">💚</span>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          {/* Call to action for Instagram */}
-          <div className="text-center mt-12">
-            <p className="mb-4" style={{ color: "#9a9c97" }}>
-              Більше корисної інформації в наших Instagram Stories
-            </p>
-            <a
-              href="https://www.instagram.com/tvoya.opora.te/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 rounded-lg border transition-colors"
-              style={{ borderColor: "#2d4640", color: "#2d4640" }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = "#2d4640";
-                e.target.style.color = "white";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = "transparent";
-                e.target.style.color = "#2d4640";
-              }}
-            >
-              <Instagram className="w-5 h-5 mr-2" />
-              Переглянути всі Stories
-              <ExternalLink className="w-4 h-4 ml-2" />
-            </a>
+            </div>
           </div>
         </div>
       </section>
