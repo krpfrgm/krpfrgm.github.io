@@ -31,26 +31,67 @@ const Logo = ({ className = "", size = "md", showText = true }: LogoProps) => {
           className="text-black"
         />
 
-        {/* Spine symbol - more anatomically accurate */}
+        {/* Spine symbol - flowing vertebrae design */}
         <g fill="white">
-          {/* Vertebrae - more realistic shapes with lateral processes */}
-          <g>
-            {/* Top vertebrae */}
-            <path d="M45 18 L55 18 L57 20 L55 22 L53 21 L50 22 L47 21 L45 22 L43 20 Z" />
-            <path d="M44 26 L56 26 L58 28 L56 30 L54 29 L50 30 L46 29 L44 30 L42 28 Z" />
-            <path d="M43 34 L57 34 L59 36 L57 38 L55 37 L50 38 L45 37 L43 38 L41 36 Z" />
-            <path d="M42 42 L58 42 L60 44 L58 46 L56 45 L50 46 L44 45 L42 46 L40 44 Z" />
+          {/* Stylized vertebrae with smooth flowing design */}
+          <path
+            d="M50 15
+                   C 45 17, 40 19, 42 22
+                   C 44 25, 46 24, 50 24
+                   C 54 24, 56 25, 58 22
+                   C 60 19, 55 17, 50 15 Z"
+          />
 
-            {/* Middle vertebrae - larger */}
-            <path d="M42 50 L58 50 L60 52 L58 54 L56 53 L50 54 L44 53 L42 54 L40 52 Z" />
-            <path d="M43 58 L57 58 L59 60 L57 62 L55 61 L50 62 L45 61 L43 62 L41 60 Z" />
-            <path d="M44 66 L56 66 L58 68 L56 70 L54 69 L50 70 L46 69 L44 70 L42 68 Z" />
-            <path d="M45 74 L55 74 L57 76 L55 78 L53 77 L50 78 L47 77 L45 78 L43 76 Z" />
-            <path d="M46 82 L54 82 L56 84 L54 86 L52 85 L50 86 L48 85 L46 86 L44 84 Z" />
-          </g>
+          <path
+            d="M50 22
+                   C 44 24, 38 26, 40 30
+                   C 42 34, 45 33, 50 33
+                   C 55 33, 58 34, 60 30
+                   C 62 26, 56 24, 50 22 Z"
+          />
 
-          {/* Central spinal cord */}
-          <rect x="49.5" y="18" width="1" height="68" rx="0.5" />
+          <path
+            d="M50 31
+                   C 43 33, 36 35, 38 40
+                   C 40 45, 44 44, 50 44
+                   C 56 44, 60 45, 62 40
+                   C 64 35, 57 33, 50 31 Z"
+          />
+
+          <path
+            d="M50 42
+                   C 42 44, 34 46, 36 52
+                   C 38 58, 43 57, 50 57
+                   C 57 57, 62 58, 64 52
+                   C 66 46, 58 44, 50 42 Z"
+          />
+
+          <path
+            d="M50 55
+                   C 43 57, 36 59, 38 64
+                   C 40 69, 44 68, 50 68
+                   C 56 68, 60 69, 62 64
+                   C 64 59, 57 57, 50 55 Z"
+          />
+
+          <path
+            d="M50 66
+                   C 44 68, 38 70, 40 74
+                   C 42 78, 45 77, 50 77
+                   C 55 77, 58 78, 60 74
+                   C 62 70, 56 68, 50 66 Z"
+          />
+
+          <path
+            d="M50 75
+                   C 45 77, 40 79, 42 82
+                   C 44 85, 46 84, 50 84
+                   C 54 84, 56 85, 58 82
+                   C 60 79, 55 77, 50 75 Z"
+          />
+
+          {/* Central spinal column */}
+          <path d="M49.5 15 Q50 50 49.5 84 Q50 84 50.5 84 Q50 50 50.5 15 Z" />
         </g>
       </svg>
 
