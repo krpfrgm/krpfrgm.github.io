@@ -27,7 +27,7 @@ const Index = () => {
 
   const services = [
     {
-      title: "Лікувальний масаж",
+      title: "Лікув��льний масаж",
       description:
         "Професійний масаж для лікування захворювань опорно-рухового апарату",
       icon: <Heart className="w-8 h-8" style={{ color: "#2d4640" }} />,
@@ -52,12 +52,6 @@ const Index = () => {
     { title: "Працюємо 💪🏻", description: "Наша робота" },
     { title: "Де ми?", description: "Розташування" },
     { title: "Хто ми?", description: "Про команду" },
-  ];
-
-  const stats = [
-    { number: "77", label: "Відгуків" },
-    { number: "502", label: "Клієнтів" },
-    { number: "9", label: "Років досвіду" },
   ];
 
   return (
@@ -111,9 +105,11 @@ const Index = () => {
               </button>
             </nav>
             <div className="flex items-center space-x-3">
-              <Button
-                onClick={() => scrollToSection("contact")}
-                className="text-white transition-colors"
+              <a
+                href="https://www.instagram.com/tvoya.opora.te/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 rounded-md text-white transition-colors font-medium"
                 style={{ backgroundColor: "#2d4640" }}
                 onMouseEnter={(e) =>
                   (e.target.style.backgroundColor = "#1f332f")
@@ -122,8 +118,9 @@ const Index = () => {
                   (e.target.style.backgroundColor = "#2d4640")
                 }
               >
+                <Instagram className="w-4 h-4 mr-2" />
                 Записатися
-              </Button>
+              </a>
               <a
                 href="https://www.instagram.com/tvoya.opora.te/"
                 target="_blank"
@@ -171,10 +168,11 @@ const Index = () => {
                 опорно-рухового апарату.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button
-                  size="lg"
-                  onClick={() => scrollToSection("contact")}
-                  className="text-white transition-colors"
+                <a
+                  href="https://www.instagram.com/tvoya.opora.te/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium rounded-md text-white transition-colors"
                   style={{ backgroundColor: "#2d4640" }}
                   onMouseEnter={(e) =>
                     (e.target.style.backgroundColor = "#1f332f")
@@ -183,9 +181,9 @@ const Index = () => {
                     (e.target.style.backgroundColor = "#2d4640")
                   }
                 >
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Записатися на прийом
-                </Button>
+                  <Instagram className="w-5 h-5 mr-2" />
+                  Записатися через Instagram
+                </a>
                 <Button
                   size="lg"
                   variant="outline"
@@ -205,21 +203,32 @@ const Index = () => {
                 </Button>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div
-                      className="text-2xl font-bold"
-                      style={{ color: "#2d4640" }}
-                    >
-                      {stat.number}
-                    </div>
-                    <div className="text-sm" style={{ color: "#9a9c97" }}>
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
+              {/* Professional Badge */}
+              <div className="flex items-center justify-center lg:justify-start space-x-4">
+                <div className="flex items-center bg-gray-50 rounded-full px-4 py-2">
+                  <Award
+                    className="w-5 h-5 mr-2"
+                    style={{ color: "#2d4640" }}
+                  />
+                  <span
+                    className="text-sm font-medium"
+                    style={{ color: "#161616" }}
+                  >
+                    9 років досвіду
+                  </span>
+                </div>
+                <div className="flex items-center bg-gray-50 rounded-full px-4 py-2">
+                  <CheckCircle
+                    className="w-5 h-5 mr-2"
+                    style={{ color: "#2d4640" }}
+                  />
+                  <span
+                    className="text-sm font-medium"
+                    style={{ color: "#161616" }}
+                  >
+                    Сертифіковані спеціалісти
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -262,7 +271,7 @@ const Index = () => {
               style={{ color: "#9a9c97" }}
             >
               Ми - команда професіоналів з 9-річним досвідом у сфері
-              лікувального масажу та реа��ілітації. Спеціалізуємося на лікуванні
+              лікувального масажу та реабілітації. Спеціалізуємося на лікуванні
               сколіозу та захворювань опорно-рухового апарату.
             </p>
           </div>
@@ -554,7 +563,7 @@ const Index = () => {
                     </div>
                   </div>
                   <p className="text-white text-sm text-center leading-relaxed">
-                    Ми - клініка здорового
+                    Ми - клініка ��дорового
                     <br />
                     хребта у Тернополі
                   </p>
@@ -721,7 +730,7 @@ const Index = () => {
                 </div>
                 <p style={{ color: "#9a9c97" }}>
                   "Професійний підхід до лікування сколіозу. Вже після кількох
-                  сеансів помітні покраще��ня. Зручне розташування в центрі
+                  сеансів помітні покращення. Зручне розташування в центрі
                   Тернополя. Дякую команді!"
                 </p>
               </CardContent>
@@ -855,7 +864,7 @@ const Index = () => {
                   <div>
                     <p className="font-medium">Адреса</p>
                     <p style={{ color: "rgba(255, 255, 255, 0.8)" }}>
-                      Тернопіль, Україна
+                      ��ернопіль, Україна
                     </p>
                   </div>
                 </div>
@@ -905,7 +914,7 @@ const Index = () => {
                 </h3>
                 <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d192.41261927508788!2d25.5904309538405!3d49.545206004260955!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473036b0923af08d%3A0x4bb815779bcaba59!2z0KLQstC-0Y8g0L7Qv9C-0YDQsCDigJQg0YbQtdC90YLRgCDRhNGW0LfQuNGH0L3QvtGXINGA0LXQsNCx0ZbQu9GW0YLQsNGG0ZbRlw!5e0!3m2!1sen!2sua!4v1749328166397!5m2!1sen!2sua"
+                    src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=uk&amp;q=49.553516,25.596625+(Твоя%20Опора%20-%20Реабілітаційно-масажний%20центр)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -935,79 +944,30 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Booking Form */}
-
+            {/* Instagram Booking Call-to-Action */}
             <div>
               <Card className="bg-white" style={{ color: "#161616" }}>
-                <CardContent className="p-8">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <Instagram className="w-8 h-8 text-white" />
+                  </div>
                   <h3
-                    className="text-2xl font-bold mb-6"
+                    className="text-2xl font-bold mb-4"
                     style={{ color: "#161616" }}
                   >
                     Записатися на прийом
                   </h3>
+                  <p className="mb-6" style={{ color: "#9a9c97" }}>
+                    Для запису на масаж або реабілітацію напишіть нам у Direct
+                    Instagram. Ми швидко відповімо та допоможемо обрати зручний
+                    час.
+                  </p>
                   <div className="space-y-4">
-                    <div>
-                      <label
-                        className="block text-sm font-medium mb-2"
-                        style={{ color: "#161616" }}
-                      >
-                        Ім'я
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent"
-                        style={{ "--tw-ring-color": "#2d4640" } as any}
-                        placeholder="Ваше ім'я"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        className="block text-sm font-medium mb-2"
-                        style={{ color: "#161616" }}
-                      >
-                        Телефон
-                      </label>
-                      <input
-                        type="tel"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent"
-                        style={{ "--tw-ring-color": "#2d4640" } as any}
-                        placeholder="+380 XX XXX XX XX"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        className="block text-sm font-medium mb-2"
-                        style={{ color: "#161616" }}
-                      >
-                        Послуга
-                      </label>
-                      <select
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent"
-                        style={{ "--tw-ring-color": "#2d4640" } as any}
-                      >
-                        <option>Лікувальний масаж</option>
-                        <option>Реабілітація</option>
-                        <option>Лікування сколіозу</option>
-                        <option>Консультація</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label
-                        className="block text-sm font-medium mb-2"
-                        style={{ color: "#161616" }}
-                      >
-                        Повідомлення
-                      </label>
-                      <textarea
-                        rows={4}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent"
-                        style={{ "--tw-ring-color": "#2d4640" } as any}
-                        placeholder="Опишіть вашу проблему (необов'язково)"
-                      />
-                    </div>
-                    <Button
-                      className="w-full text-white transition-colors"
+                    <a
+                      href="https://www.instagram.com/tvoya.opora.te/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-full px-6 py-3 rounded-lg text-white transition-colors font-medium"
                       style={{ backgroundColor: "#2d4640" }}
                       onMouseEnter={(e) =>
                         (e.target.style.backgroundColor = "#1f332f")
@@ -1016,9 +976,13 @@ const Index = () => {
                         (e.target.style.backgroundColor = "#2d4640")
                       }
                     >
-                      <MessageCircle className="w-5 h-5 mr-2" />
-                      Надіслати заявку
-                    </Button>
+                      <Instagram className="w-5 h-5 mr-2" />
+                      Написати в Instagram
+                      <ExternalLink className="w-4 h-4 ml-2" />
+                    </a>
+                    <p className="text-xs" style={{ color: "#9a9c97" }}>
+                      @tvoya.opora.te • Відповідаємо протягом години
+                    </p>
                   </div>
                 </CardContent>
               </Card>
