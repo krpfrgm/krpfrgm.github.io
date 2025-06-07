@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +21,21 @@ import {
 } from "lucide-react";
 
 const Index = () => {
+  // Add floating animation styles
+  const floatingAnimation = `
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+  `;
+
+  // Inject animation styles
+  React.useEffect(() => {
+    const style = document.createElement("style");
+    style.textContent = floatingAnimation;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -38,7 +54,7 @@ const Index = () => {
       icon: <Users className="w-8 h-8" style={{ color: "#2d4640" }} />,
     },
     {
-      title: "Лікування сколіо��у",
+      title: "Лікування сколіозу",
       description: "Спеціалізована терапія для корекції викривлення хребта",
       icon: <Award className="w-8 h-8" style={{ color: "#2d4640" }} />,
     },
@@ -230,11 +246,48 @@ const Index = () => {
                   style={{ color: "#2d4640" }}
                 />
               </div>
-              <div className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg">
-                <Heart className="w-8 h-8 text-red-500" />
+              {/* Animated floating heart */}
+              <div
+                className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-xl group"
+                style={{
+                  animation: "float 3s ease-in-out infinite",
+                  animationDelay: "0s",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "scale(1.2) translateY(-5px)";
+                  e.target.style.boxShadow =
+                    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "scale(1)";
+                  e.target.style.boxShadow =
+                    "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
+                }}
+              >
+                <Heart className="w-8 h-8 text-red-500 group-hover:text-red-600 transition-colors duration-300" />
               </div>
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-full p-3 shadow-lg">
-                <Award className="w-8 h-8" style={{ color: "#2d4640" }} />
+              {/* Animated floating award */}
+              <div
+                className="absolute -bottom-4 -left-4 bg-white rounded-full p-3 shadow-lg cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-xl group"
+                style={{
+                  animation: "float 3s ease-in-out infinite",
+                  animationDelay: "1.5s",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "scale(1.2) translateY(-5px)";
+                  e.target.style.boxShadow =
+                    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "scale(1)";
+                  e.target.style.boxShadow =
+                    "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
+                }}
+              >
+                <Award
+                  className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
+                  style={{ color: "#2d4640" }}
+                />
               </div>
             </div>
           </div>
@@ -329,6 +382,164 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Service Provider Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Photo Section */}
+            <div className="relative">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                {/* Placeholder for service provider photo - replace with actual image */}
+                <div
+                  className="aspect-[4/5] bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center relative"
+                  style={{ minHeight: "400px" }}
+                >
+                  {/* Placeholder illustration */}
+                  <div className="text-center">
+                    <div
+                      className="w-32 h-32 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg"
+                      style={{ backgroundColor: "#2d4640" }}
+                    >
+                      <Users className="w-16 h-16 text-white" />
+                    </div>
+                    <p className="text-sm" style={{ color: "#9a9c97" }}>
+                      Фото спеціаліста
+                    </p>
+                  </div>
+
+                  {/* Decorative elements */}
+                  <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                    <Heart className="w-6 h-6 text-red-400" />
+                  </div>
+                  <div className="absolute bottom-6 left-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                    <Award className="w-6 h-6" style={{ color: "#2d4640" }} />
+                  </div>
+                </div>
+
+                {/* Professional overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                  <div className="text-white">
+                    <h3 className="text-xl font-bold mb-2">
+                      Професійний масажист
+                    </h3>
+                    <p className="text-sm opacity-90">
+                      Сертифікований спеціаліст
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Description Section */}
+            <div className="space-y-6">
+              <div>
+                <Badge
+                  className="mb-4"
+                  style={{ backgroundColor: "#2d4640", color: "white" }}
+                >
+                  Наш експерт
+                </Badge>
+                <h2
+                  className="text-3xl font-bold mb-6"
+                  style={{ color: "#161616" }}
+                >
+                  Ваш провідник до здорового хребта
+                </h2>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-start space-x-4">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                  >
+                    <Award className="w-6 h-6" style={{ color: "#2d4640" }} />
+                  </div>
+                  <div>
+                    <h3
+                      className="font-semibold mb-2"
+                      style={{ color: "#161616" }}
+                    >
+                      9 років досвіду
+                    </h3>
+                    <p style={{ color: "#9a9c97" }}>
+                      Багаторічний досвід роботи з різними захворюваннями
+                      опорно-рухового апарату
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                  >
+                    <CheckCircle
+                      className="w-6 h-6"
+                      style={{ color: "#2d4640" }}
+                    />
+                  </div>
+                  <div>
+                    <h3
+                      className="font-semibold mb-2"
+                      style={{ color: "#161616" }}
+                    >
+                      Сертифікований підхід
+                    </h3>
+                    <p style={{ color: "#9a9c97" }}>
+                      Використання сучасних методик лікування та реабілітації
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                  >
+                    <Heart className="w-6 h-6" style={{ color: "#2d4640" }} />
+                  </div>
+                  <div>
+                    <h3
+                      className="font-semibold mb-2"
+                      style={{ color: "#161616" }}
+                    >
+                      Індивідуальний підхід
+                    </h3>
+                    <p style={{ color: "#9a9c97" }}>
+                      Кожен клієнт отримує персональну програму лікування та
+                      реабілітації
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4">
+                <a
+                  href="https://www.instagram.com/tvoya.opora.te/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 rounded-lg border transition-colors"
+                  style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = "#2d4640";
+                    e.target.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "transparent";
+                    e.target.style.color = "#2d4640";
+                  }}
+                >
+                  <Instagram className="w-5 h-5 mr-2" />
+                  Дізнатися більше про спеціаліста
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section id="services" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -381,7 +592,7 @@ const Index = () => {
                       e.target.style.color = "#2d4640";
                     }}
                   >
-                    Дізна��ися більше
+                    Дізнатися більше
                   </Button>
                 </CardContent>
               </Card>
