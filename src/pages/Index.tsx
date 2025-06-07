@@ -18,7 +18,382 @@ import {
   Star,
   MessageCircle,
   ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+  Play,
+  Pause,
 } from "lucide-react";
+
+// Service Provider Data
+const serviceProviders = [
+  {
+    id: 1,
+    name: "Олена Сидорова",
+    title: "Провідний спеціаліст з масажу",
+    subtitle: "Сертифікований масажист-реабілітолог",
+    experience: "9 років досвіду",
+    specialization: "Лікувальний масаж та сколіоз",
+    gradient: "from-green-50 to-blue-50",
+    description:
+      "Спеціалізується на лікувальному масажі та корекції сколіозу. Має вищу медичну освіту та сертифікати міжнародних організацій.",
+    achievements: [
+      {
+        icon: <Award className="w-6 h-6" style={{ color: "#2d4640" }} />,
+        title: "9+ років досвіду",
+        description:
+          "Багаторічний досвід роботи з різними захворюваннями опорно-рухового апарату",
+      },
+      {
+        icon: <CheckCircle className="w-6 h-6" style={{ color: "#2d4640" }} />,
+        title: "Сертифікований підхід",
+        description: "Використання сучасних методик лікування та реабілітації",
+      },
+      {
+        icon: <Heart className="w-6 h-6" style={{ color: "#2d4640" }} />,
+        title: "Індивідуальний підхід",
+        description:
+          "Кожен клієнт отримує персональну програму лікування та реабілітації",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Андрій Коваленко",
+    title: "Спеціаліст з реабілітації",
+    subtitle: "Фізіотерапевт-реабілітолог",
+    experience: "7 років досвіду",
+    specialization: "Реабілітація та фізіотерапія",
+    gradient: "from-blue-50 to-purple-50",
+    description:
+      "Експерт з відновлювальної медицини та спортивної реабілітації. Працює з пацієнтами після травм та операцій.",
+    achievements: [
+      {
+        icon: <Users className="w-6 h-6" style={{ color: "#2d4640" }} />,
+        title: "7+ років досвіду",
+        description: "Спеціалізація на реабілітації після травм та операцій",
+      },
+      {
+        icon: <Award className="w-6 h-6" style={{ color: "#2d4640" }} />,
+        title: "Спортивна реабілітація",
+        description: "Робота з професійними спортсменами та активними людьми",
+      },
+      {
+        icon: <CheckCircle className="w-6 h-6" style={{ color: "#2d4640" }} />,
+        title: "Сучасні методики",
+        description: "Використання найновіших технологій відновлення",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Марія Петренко",
+    title: "Дитячий спеціаліст",
+    subtitle: "Педіатричний масажист",
+    experience: "6 років досвіду",
+    specialization: "Дитячий масаж та розвиток",
+    gradient: "from-pink-50 to-orange-50",
+    description:
+      "Спеціалізується на роботі з дітьми від народження до 18 років. Експерт з профілактики та лікування дитячих порушень постави.",
+    achievements: [
+      {
+        icon: <Heart className="w-6 h-6" style={{ color: "#2d4640" }} />,
+        title: "6+ років досвіду",
+        description: "Робота з дітьми різного віку та їх особливостями",
+      },
+      {
+        icon: <Users className="w-6 h-6" style={{ color: "#2d4640" }} />,
+        title: "Дитяча спеціалізація",
+        description: "Профілактика та корекція порушень постави у дітей",
+      },
+      {
+        icon: <Award className="w-6 h-6" style={{ color: "#2d4640" }} />,
+        title: "Розвивальний масаж",
+        description: "Стимуляція розвитку та зміцнення м'язової системи",
+      },
+    ],
+  },
+];
+
+// Service Provider Carousel Component
+const ServiceProviderCarousel = () => {
+  const [currentIndex, setCurrentIndex] = React.useState(() =>
+    Math.floor(Math.random() * serviceProviders.length),
+  );
+  const [isPlaying, setIsPlaying] = React.useState(true);
+  const [touchStart, setTouchStart] = React.useState(null);
+  const [touchEnd, setTouchEnd] = React.useState(null);
+
+  const nextProvider = () => {
+    setCurrentIndex((prev) => (prev + 1) % serviceProviders.length);
+  };
+
+  const prevProvider = () => {
+    setCurrentIndex(
+      (prev) => (prev - 1 + serviceProviders.length) % serviceProviders.length,
+    );
+  };
+
+  const goToProvider = (index) => {
+    setCurrentIndex(index);
+  };
+
+  // Auto-rotation
+  React.useEffect(() => {
+    if (!isPlaying) return;
+
+    const interval = setInterval(() => {
+      nextProvider();
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [isPlaying, currentIndex]);
+
+  // Touch handlers
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextProvider();
+    }
+    if (isRightSwipe) {
+      prevProvider();
+    }
+  };
+
+  const currentProvider = serviceProviders[currentIndex];
+
+  return (
+    <div className="relative">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <Badge
+          className="mb-4"
+          style={{ backgroundColor: "#2d4640", color: "white" }}
+        >
+          Наша команда
+        </Badge>
+        <h2 className="text-3xl font-bold mb-4" style={{ color: "#161616" }}>
+          Професійні спеціалісти
+        </h2>
+        <p className="text-lg max-w-3xl mx-auto" style={{ color: "#9a9c97" }}>
+          Наша команда досвідчених спеціалістів готова допомогти вам на шляху до
+          здоров'я
+        </p>
+      </div>
+
+      {/* Carousel Container */}
+      <div className="relative overflow-hidden">
+        <div
+          className="transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="flex">
+            {serviceProviders.map((provider, index) => (
+              <div key={provider.id} className="w-full flex-shrink-0">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                  {/* Photo Section */}
+                  <div className="relative">
+                    <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                      <div
+                        className={`aspect-[4/5] bg-gradient-to-br ${provider.gradient} flex items-center justify-center relative`}
+                        style={{ minHeight: "400px" }}
+                      >
+                        {/* Placeholder illustration */}
+                        <div className="text-center">
+                          <div
+                            className="w-32 h-32 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg"
+                            style={{ backgroundColor: "#2d4640" }}
+                          >
+                            <Users className="w-16 h-16 text-white" />
+                          </div>
+                          <p className="text-sm" style={{ color: "#9a9c97" }}>
+                            {provider.name}
+                          </p>
+                        </div>
+
+                        {/* Decorative elements */}
+                        <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                          <Heart className="w-6 h-6 text-red-400" />
+                        </div>
+                        <div className="absolute bottom-6 left-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                          <Award
+                            className="w-6 h-6"
+                            style={{ color: "#2d4640" }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Professional overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                        <div className="text-white">
+                          <h3 className="text-xl font-bold mb-2">
+                            {provider.title}
+                          </h3>
+                          <p className="text-sm opacity-90">
+                            {provider.subtitle}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Description Section */}
+                  <div className="space-y-6">
+                    <div>
+                      <h2
+                        className="text-3xl font-bold mb-2"
+                        style={{ color: "#161616" }}
+                      >
+                        {provider.name}
+                      </h2>
+                      <div className="flex items-center gap-4 mb-4">
+                        <Badge
+                          variant="outline"
+                          style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                        >
+                          {provider.experience}
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                        >
+                          {provider.specialization}
+                        </Badge>
+                      </div>
+                      <p className="text-lg mb-6" style={{ color: "#9a9c97" }}>
+                        {provider.description}
+                      </p>
+                    </div>
+
+                    <div className="space-y-4">
+                      {provider.achievements.map((achievement, idx) => (
+                        <div key={idx} className="flex items-start space-x-4">
+                          <div
+                            className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+                            style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
+                          >
+                            {achievement.icon}
+                          </div>
+                          <div>
+                            <h3
+                              className="font-semibold mb-2"
+                              style={{ color: "#161616" }}
+                            >
+                              {achievement.title}
+                            </h3>
+                            <p style={{ color: "#9a9c97" }}>
+                              {achievement.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="pt-4">
+                      <a
+                        href="https://www.instagram.com/tvoya.opora.te/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-6 py-3 rounded-lg border transition-colors"
+                        style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                        onMouseEnter={(e) => {
+                          e.target.style.backgroundColor = "#2d4640";
+                          e.target.style.color = "white";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.backgroundColor = "transparent";
+                          e.target.style.color = "#2d4640";
+                        }}
+                      >
+                        <Instagram className="w-5 h-5 mr-2" />
+                        Дізнатися більше про спеціаліста
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevProvider}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl z-10"
+          style={{ color: "#2d4640" }}
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        <button
+          onClick={nextProvider}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl z-10"
+          style={{ color: "#2d4640" }}
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Controls */}
+      <div className="flex items-center justify-center mt-8 space-x-6">
+        {/* Indicators */}
+        <div className="flex space-x-2">
+          {serviceProviders.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToProvider(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? "scale-125 shadow-lg"
+                  : "hover:scale-110"
+              }`}
+              style={{
+                backgroundColor: index === currentIndex ? "#2d4640" : "#9a9c97",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Play/Pause Button */}
+        <button
+          onClick={() => setIsPlaying(!isPlaying)}
+          className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-md"
+          style={{ color: "#2d4640" }}
+        >
+          {isPlaying ? (
+            <Pause className="w-5 h-5" />
+          ) : (
+            <Play className="w-5 h-5 ml-0.5" />
+          )}
+        </button>
+      </div>
+
+      {/* Provider Counter */}
+      <div className="text-center mt-4">
+        <p className="text-sm" style={{ color: "#9a9c97" }}>
+          {currentIndex + 1} з {serviceProviders.length} спеціалістів
+        </p>
+      </div>
+    </div>
+  );
+};
 
 const Index = () => {
   // Add floating animation styles
@@ -50,7 +425,7 @@ const Index = () => {
     },
     {
       title: "Реабілітація",
-      description: "Комплексні програми відновлення після травм та операцій",
+      description: "Комплексні програми відновлення піс��я травм та операцій",
       icon: <Users className="w-8 h-8" style={{ color: "#2d4640" }} />,
     },
     {
@@ -344,7 +719,7 @@ const Index = () => {
                   502+ клієнтів
                 </h3>
                 <p className="text-sm" style={{ color: "#9a9c97" }}>
-                  Довіра сотень задоволених клієнтів
+                  Дові��а сотень задоволених клієнтів
                 </p>
               </CardContent>
             </Card>
@@ -382,164 +757,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Service Provider Section */}
+      {/* Service Provider Carousel Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Photo Section */}
-            <div className="relative">
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                {/* Placeholder for service provider photo - replace with actual image */}
-                <div
-                  className="aspect-[4/5] bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center relative"
-                  style={{ minHeight: "400px" }}
-                >
-                  {/* Placeholder illustration */}
-                  <div className="text-center">
-                    <div
-                      className="w-32 h-32 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: "#2d4640" }}
-                    >
-                      <Users className="w-16 h-16 text-white" />
-                    </div>
-                    <p className="text-sm" style={{ color: "#9a9c97" }}>
-                      Фото спеціаліста
-                    </p>
-                  </div>
-
-                  {/* Decorative elements */}
-                  <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-red-400" />
-                  </div>
-                  <div className="absolute bottom-6 left-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <Award className="w-6 h-6" style={{ color: "#2d4640" }} />
-                  </div>
-                </div>
-
-                {/* Professional overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                  <div className="text-white">
-                    <h3 className="text-xl font-bold mb-2">
-                      Професійний масажист
-                    </h3>
-                    <p className="text-sm opacity-90">
-                      Сертифікований спеціаліст
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Description Section */}
-            <div className="space-y-6">
-              <div>
-                <Badge
-                  className="mb-4"
-                  style={{ backgroundColor: "#2d4640", color: "white" }}
-                >
-                  Наш експерт
-                </Badge>
-                <h2
-                  className="text-3xl font-bold mb-6"
-                  style={{ color: "#161616" }}
-                >
-                  Ваш провідник до здорового хребта
-                </h2>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-start space-x-4">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
-                  >
-                    <Award className="w-6 h-6" style={{ color: "#2d4640" }} />
-                  </div>
-                  <div>
-                    <h3
-                      className="font-semibold mb-2"
-                      style={{ color: "#161616" }}
-                    >
-                      9 років досвіду
-                    </h3>
-                    <p style={{ color: "#9a9c97" }}>
-                      Багаторічний досвід роботи з різними захворюваннями
-                      опорно-рухового апарату
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
-                  >
-                    <CheckCircle
-                      className="w-6 h-6"
-                      style={{ color: "#2d4640" }}
-                    />
-                  </div>
-                  <div>
-                    <h3
-                      className="font-semibold mb-2"
-                      style={{ color: "#161616" }}
-                    >
-                      Сертифікований підхід
-                    </h3>
-                    <p style={{ color: "#9a9c97" }}>
-                      Використання сучасних методик лікування та реабілітації
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "rgba(45, 70, 64, 0.1)" }}
-                  >
-                    <Heart className="w-6 h-6" style={{ color: "#2d4640" }} />
-                  </div>
-                  <div>
-                    <h3
-                      className="font-semibold mb-2"
-                      style={{ color: "#161616" }}
-                    >
-                      Індивідуальний підхід
-                    </h3>
-                    <p style={{ color: "#9a9c97" }}>
-                      Кожен клієнт отримує персональну програму лікування та
-                      реабілітації
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4">
-                <a
-                  href="https://www.instagram.com/tvoya.opora.te/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 rounded-lg border transition-colors"
-                  style={{ borderColor: "#2d4640", color: "#2d4640" }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "#2d4640";
-                    e.target.style.color = "white";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "transparent";
-                    e.target.style.color = "#2d4640";
-                  }}
-                >
-                  <Instagram className="w-5 h-5 mr-2" />
-                  Дізнатися більше про спеціаліста
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </a>
-              </div>
-            </div>
-          </div>
+          <ServiceProviderCarousel />
         </div>
       </section>
-
       {/* Services Section */}
       <section id="services" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -619,7 +842,7 @@ const Index = () => {
               className="text-lg max-w-3xl mx-auto"
               style={{ color: "#9a9c97" }}
             >
-              Дізнайтеся більше про наші послуги та корисні поради
+              Дізнайтеся більше про наші послуги т�� корисні поради
             </p>
           </div>
 
