@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import Logo from "@/components/Logo";
 import {
   Heart,
   MapPin,
@@ -66,10 +67,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
-              {/* Placeholder for logo - will be replaced when logo is provided */}
-              <div className="w-8 h-8 bg-green-600 rounded flex items-center justify-center">
-                <Heart className="w-5 h-5 text-white" />
-              </div>
+              <Logo size="sm" showText={false} />
               <span className="text-xl font-bold text-black">
                 tvoya.opora.te
               </span>
@@ -168,9 +166,9 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center">
-                <div className="text-6xl">💆‍♀️</div>
+            <div className="relative flex justify-center">
+              <div className="bg-white p-8 rounded-2xl shadow-lg">
+                <Logo size="lg" showText={true} className="text-center" />
               </div>
               <div className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg">
                 <Heart className="w-8 h-8 text-red-500" />
@@ -469,10 +467,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              {/* Placeholder for logo - will be replaced when logo is provided */}
-              <div className="w-6 h-6 bg-green-600 rounded flex items-center justify-center">
-                <Heart className="w-4 h-4 text-white" />
-              </div>
+              <Logo size="sm" showText={false} className="text-white" />
               <span className="text-lg font-semibold">tvoya.opora.te</span>
             </div>
 
