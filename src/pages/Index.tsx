@@ -383,7 +383,7 @@ const Index = () => {
                       e.target.style.color = "#2d4640";
                     }}
                   >
-                    Ді��натися більше
+                    Дізнатися більше
                   </Button>
                 </CardContent>
               </Card>
@@ -460,7 +460,7 @@ const Index = () => {
               Ви 🩶
             </h2>
             <p className="text-lg" style={{ color: "#9a9c97" }}>
-              Історії наших клієнтів та їх успіхи в лікуван��і
+              Історії наших клієнтів та їх успіхи в лікуванні
             </p>
           </div>
 
@@ -742,7 +742,7 @@ const Index = () => {
                 </h3>
                 <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2560.5234642093!2d25.59407937692315!3d49.55351497139595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDnCsDMzJzEyLjciTiAyNcKwMzUnNDAuNyJF!5e0!3m2!1sen!2sua!4v1735066666555!5m2!1sen!2sua"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.5!2d25.5944!3d49.5535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4730314c8b82bc43%3A0x4d94ba3d23e86c6d!2sТернопіль%2C%20Тернопільська%20область%2C%20Україна!5e0!3m2!1suk!2sus!4v1735067000000!5m2!1suk!2sus"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -883,7 +883,7 @@ const Index = () => {
 
             <div className="text-center md:text-right">
               <p className="text-sm" style={{ color: "#9a9c97" }}>
-                © 2025 tvoya.opora.te. Усі права захищені.
+                © 2025 tvoya.opora.te. Усі права захище��і.
               </p>
               <p className="text-sm" style={{ color: "#9a9c97" }}>
                 МАСАЖ | РЕАБІЛІТАЦІЯ | СКОЛІОЗ | ТЕРНОПІЛЬ
@@ -1018,7 +1018,7 @@ export default Index;
           Надіслати заявку
         </Button>
         <p className="text-xs text-center" style={{ color: "#9a9c97" }}>
-          Ми зв'яжемося з вами протягом години для підтвердження запису
+          Ми зв'яжемося з вами протягом години для п��дтвердження запису
         </p>
       </div>
     </CardContent>
