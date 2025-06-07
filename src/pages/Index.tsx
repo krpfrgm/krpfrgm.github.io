@@ -27,7 +27,7 @@ const Index = () => {
 
   const services = [
     {
-      title: "Лікув��льний масаж",
+      title: "Лікувальний масаж",
       description:
         "Професійний масаж для лікування захворювань опорно-рухового апарату",
       icon: <Heart className="w-8 h-8" style={{ color: "#2d4640" }} />,
@@ -38,7 +38,7 @@ const Index = () => {
       icon: <Users className="w-8 h-8" style={{ color: "#2d4640" }} />,
     },
     {
-      title: "Лікування сколіозу",
+      title: "Лікування сколіо��у",
       description: "Спеціалізована терапія для корекції викривлення хребта",
       icon: <Award className="w-8 h-8" style={{ color: "#2d4640" }} />,
     },
@@ -120,17 +120,6 @@ const Index = () => {
               >
                 <Instagram className="w-4 h-4 mr-2" />
                 Записатися
-              </a>
-              <a
-                href="https://www.instagram.com/tvoya.opora.te/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors"
-                style={{ color: "#9a9c97" }}
-                onMouseEnter={(e) => (e.target.style.color = "#2d4640")}
-                onMouseLeave={(e) => (e.target.style.color = "#9a9c97")}
-              >
-                <Instagram className="w-6 h-6" />
               </a>
             </div>
           </div>
@@ -392,7 +381,7 @@ const Index = () => {
                       e.target.style.color = "#2d4640";
                     }}
                   >
-                    Дізнатися більше
+                    Дізна��ися більше
                   </Button>
                 </CardContent>
               </Card>
@@ -563,7 +552,7 @@ const Index = () => {
                     </div>
                   </div>
                   <p className="text-white text-sm text-center leading-relaxed">
-                    Ми - клініка ��дорового
+                    Ми - клініка здорового
                     <br />
                     хребта у Тернополі
                   </p>
@@ -864,7 +853,7 @@ const Index = () => {
                   <div>
                     <p className="font-medium">Адреса</p>
                     <p style={{ color: "rgba(255, 255, 255, 0.8)" }}>
-                      ��ернопіль, Україна
+                      Тернопіль, Україна
                     </p>
                   </div>
                 </div>
