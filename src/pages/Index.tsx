@@ -305,7 +305,7 @@ const Index = () => {
                   style={{ color: "#2d4640" }}
                 />
                 <h3 className="font-semibold" style={{ color: "#161616" }}>
-                  Профе��ійно
+                  Професійно
                 </h3>
                 <p className="text-sm" style={{ color: "#9a9c97" }}>
                   Сертифіковані спеціалісти
@@ -346,7 +346,7 @@ const Index = () => {
               style={{ color: "#9a9c97" }}
             >
               Комплексний підхід до лікування та профілактики захворювань
-              опорно-рухового апара��у
+              опорно-рухового апарату
             </p>
           </div>
 
@@ -659,7 +659,7 @@ const Index = () => {
                       }
                     >
                       <MessageCircle className="w-5 h-5 mr-2" />
-                      Надіслати заявку
+                      Надіслати заявк��
                     </Button>
                   </div>
                 </CardContent>
@@ -691,7 +691,7 @@ const Index = () => {
                 © 2025 tvoya.opora.te. Усі права захищені.
               </p>
               <p className="text-sm" style={{ color: "#9a9c97" }}>
-                МАСАЖ | РЕАБІЛІТАЦІЯ | СКОЛІОЗ | ТЕРНОПІЛЬ
+                МАСАЖ | РЕАБІЛІТАЦІЯ | СКОЛІОЗ | ТЕР��ОПІЛЬ
               </p>
             </div>
           </div>
@@ -713,3 +713,119 @@ const Index = () => {
 };
 
 export default Index;
+{
+  /* Booking Form */
+}
+<div>
+  <Card className="bg-white" style={{ color: "#161616" }}>
+    <CardContent className="p-8">
+      <h3 className="text-2xl font-bold mb-6" style={{ color: "#161616" }}>
+        Записатися на прийом
+      </h3>
+      <p className="mb-6" style={{ color: "#9a9c97" }}>
+        Заповніть форму і ми зв'яжемося з вами для підтвердження запису
+      </p>
+      <div className="space-y-4">
+        <div>
+          <label
+            className="block text-sm font-medium mb-2"
+            style={{ color: "#161616" }}
+          >
+            Ім'я
+          </label>
+          <input
+            type="text"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent transition-colors"
+            style={{ "--tw-ring-color": "#2d4640" } as any}
+            placeholder="Ваше ім'я"
+          />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium mb-2"
+            style={{ color: "#161616" }}
+          >
+            Телефон
+          </label>
+          <input
+            type="tel"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent transition-colors"
+            style={{ "--tw-ring-color": "#2d4640" } as any}
+            placeholder="+380 XX XXX XX XX"
+          />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium mb-2"
+            style={{ color: "#161616" }}
+          >
+            Послуга
+          </label>
+          <select
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent transition-colors"
+            style={{ "--tw-ring-color": "#2d4640" } as any}
+          >
+            <option>Лікувальний масаж</option>
+            <option>Реабілітація</option>
+            <option>Лікування сколіозу</option>
+            <option>Консультація</option>
+          </select>
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium mb-2"
+            style={{ color: "#161616" }}
+          >
+            Бажаний час
+          </label>
+          <div className="grid grid-cols-2 gap-3">
+            <input
+              type="date"
+              className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent transition-colors"
+              style={{ "--tw-ring-color": "#2d4640" } as any}
+            />
+            <select
+              className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent transition-colors"
+              style={{ "--tw-ring-color": "#2d4640" } as any}
+            >
+              <option>09:00</option>
+              <option>10:00</option>
+              <option>11:00</option>
+              <option>12:00</option>
+              <option>14:00</option>
+              <option>15:00</option>
+              <option>16:00</option>
+              <option>17:00</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium mb-2"
+            style={{ color: "#161616" }}
+          >
+            Повідомлення
+          </label>
+          <textarea
+            rows={4}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:border-transparent transition-colors"
+            style={{ "--tw-ring-color": "#2d4640" } as any}
+            placeholder="Опишіть вашу проблему (необов'язково)"
+          />
+        </div>
+        <Button
+          className="w-full text-white transition-colors"
+          style={{ backgroundColor: "#2d4640" }}
+          onMouseEnter={(e) => (e.target.style.backgroundColor = "#1f332f")}
+          onMouseLeave={(e) => (e.target.style.backgroundColor = "#2d4640")}
+        >
+          <MessageCircle className="w-5 h-5 mr-2" />
+          Надіслати заявку
+        </Button>
+        <p className="text-xs text-center" style={{ color: "#9a9c97" }}>
+          Ми зв'яжемося з вами протягом години для підтвердження запису
+        </p>
+      </div>
+    </CardContent>
+  </Card>
+</div>;
