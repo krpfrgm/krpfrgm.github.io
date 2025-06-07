@@ -34,6 +34,7 @@ const serviceProviders = [
     experience: "9 років досвіду",
     specialization: "Лікувальний масаж та сколіоз",
     gradient: "from-green-50 to-blue-50",
+    imageUrl: "/images/Serhii.jpg",
     description:
       "Спеціалізується на лікувальному масажі та корекції сколіозу. Має вищу медичну освіту та сертифікати міжнародних організацій.",
     achievements: [
@@ -64,6 +65,7 @@ const serviceProviders = [
     experience: "7 років досвіду",
     specialization: "Реабілітація та фізіотерапія",
     gradient: "from-blue-50 to-purple-50",
+    imageUrl: "/images/Serhii.jpg", // Add your image here
     description:
       "Експерт з відновлювальної медицини та спортивної реабілітації. Працює з пацієнтами після травм та операцій.",
     achievements: [
@@ -210,21 +212,41 @@ const ServiceProviderCarousel = () => {
                   {/* Photo Section */}
                   <div className="relative">
                     <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                      <div
-                        className={`aspect-[4/5] bg-gradient-to-br ${provider.gradient} flex items-center justify-center relative`}
+                      <div 
+                        className="aspect-[4/5] relative overflow-hidden"
                         style={{ minHeight: "400px" }}
                       >
-                        {/* Placeholder illustration */}
-                        <div className="text-center">
-                          <div
-                            className="w-32 h-32 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg"
-                            style={{ backgroundColor: "#2d4640" }}
-                          >
-                            <Users className="w-16 h-16 text-white" />
+{/* Service Provider Image */}
+                        <img
+                          src={
+                            provider.imageUrl ||
+                            `/images/${provider.name.toLowerCase().replace(" ", "-")}.jpg`
+                          }
+                          alt={provider.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            // Fallback to placeholder if image fails to load
+                            e.target.style.display = "none";
+                            e.target.nextSibling.style.display = "flex";
+                          }}
+                        />
+
+                        {/* Fallback placeholder (hidden by default) */}
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-br ${provider.gradient} flex items-center justify-center`}
+                          style={{ display: "none" }}
+                        >
+                          <div className="text-center">
+                            <div
+                              className="w-32 h-32 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg"
+                              style={{ backgroundColor: "#2d4640" }}
+                            >
+                              <Users className="w-16 h-16 text-white" />
+                            </div>
+                            <p className="text-sm" style={{ color: "#9a9c97" }}>
+                              {provider.name}
+                            </p>
                           </div>
-                          <p className="text-sm" style={{ color: "#9a9c97" }}>
-                            {provider.name}
-                          </p>
                         </div>
 
                         {/* Decorative elements */}
@@ -393,7 +415,7 @@ const ServiceProviderCarousel = () => {
 };
 
 const Index = () => {
-  // Add floating animation styles
+  // Add floating anftion styles
   const floatingAnimation = `
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
