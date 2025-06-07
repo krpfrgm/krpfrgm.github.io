@@ -552,12 +552,12 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge
+              {/* <Badge
                 className="mb-4 text-white"
                 style={{ backgroundColor: "#2d4640" }}
               >
                 Health/Beauty
-              </Badge>
+              </Badge> */}
               <h1
                 className="text-4xl lg:text-6xl font-bold mb-6"
                 style={{ color: "#161616" }}
@@ -745,10 +745,10 @@ const Index = () => {
                   style={{ color: "#2d4640" }}
                 />
                 <h3 className="font-semibold" style={{ color: "#161616" }}>
-                  502+ клієнтів
+                  Більше тисячі вилікуваних пацієнтів
                 </h3>
                 <p className="text-sm" style={{ color: "#9a9c97" }}>
-                  Довіра сотень задоволених клієнтів
+                  Декілька сотень скоригованих постав
                 </p>
               </CardContent>
             </Card>
@@ -1743,7 +1743,7 @@ const Index = () => {
                 </h3>
                 <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                   <iframe
-                    src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=uk&amp;q=49.553516,25.596625+(Твоя%20Опора%20-%20Реабілітаційно-масажний%20центр)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d192.41261927508788!2d25.5904309538405!3d49.545206004260955!3m2!1i1024!2i768!4f60!3m3!1m2!1s0x473036b0923af08d%3A0x4bb815779bcaba59!2z0KLQstC-0Y8g0L7Qv9C-0YDQsCDigJQg0YbQtdC90YLRgCDRhNGW0LfQuNGH0L3QvtGXINGA0LXQsNCx0ZbQu9GW0YLQsNGG0ZbRlw!5e0!3m2!1sen!2sua!4v1749328166397!5m2!1sen!2sua"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
