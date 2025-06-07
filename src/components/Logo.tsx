@@ -31,27 +31,28 @@ const Logo = ({ className = "", size = "md", showText = true }: LogoProps) => {
           className="text-black"
         />
 
-        {/* Spine symbol - simplified design matching the original */}
-        <g fill="white">
-          {/* Central spinal column */}
-          <rect x="48.5" y="15" width="3" height="70" rx="1.5" />
-
-          {/* Vertebrae processes - alternating left and right */}
-          {/* Right side processes */}
-          <path d="M51.5 18 L62 16 Q64 16 64 18 Q64 20 62 20 L51.5 22 Z" />
-          <path d="M51.5 30 L62 28 Q64 28 64 30 Q64 32 62 32 L51.5 34 Z" />
-          <path d="M51.5 42 L62 40 Q64 40 64 42 Q64 44 62 44 L51.5 46 Z" />
-          <path d="M51.5 54 L62 52 Q64 52 64 54 Q64 56 62 56 L51.5 58 Z" />
-          <path d="M51.5 66 L62 64 Q64 64 64 66 Q64 68 62 68 L51.5 70 Z" />
-          <path d="M51.5 78 L62 76 Q64 76 64 78 Q64 80 62 80 L51.5 82 Z" />
-
-          {/* Left side processes */}
-          <path d="M48.5 24 L38 22 Q36 22 36 24 Q36 26 38 26 L48.5 28 Z" />
-          <path d="M48.5 36 L38 34 Q36 34 36 36 Q36 38 38 38 L48.5 40 Z" />
-          <path d="M48.5 48 L38 46 Q36 46 36 48 Q36 50 38 50 L48.5 52 Z" />
-          <path d="M48.5 60 L38 58 Q36 58 36 60 Q36 62 38 62 L48.5 64 Z" />
-          <path d="M48.5 72 L38 70 Q36 70 36 72 Q36 74 38 74 L48.5 76 Z" />
-        </g>
+        {/* Spine symbol - flowing design exactly matching the original */}
+        <path
+          fill="white"
+          d="
+          M 50 12
+          L 44 16 Q 42 17 42 19 Q 42 21 44 22 L 50 26
+          L 56 22 Q 58 21 58 23 Q 58 25 56 26 L 50 30
+          L 42 26 Q 40 27 40 29 Q 40 31 42 32 L 50 36
+          L 58 32 Q 60 31 60 33 Q 60 35 58 36 L 50 40
+          L 40 36 Q 38 37 38 39 Q 38 41 40 42 L 50 46
+          L 60 42 Q 62 41 62 43 Q 62 45 60 46 L 50 50
+          L 38 46 Q 36 47 36 49 Q 36 51 38 52 L 50 56
+          L 62 52 Q 64 51 64 53 Q 64 55 62 56 L 50 60
+          L 36 56 Q 34 57 34 59 Q 34 61 36 62 L 50 66
+          L 64 62 Q 66 61 66 63 Q 66 65 64 66 L 50 70
+          L 34 66 Q 32 67 32 69 Q 32 71 34 72 L 50 76
+          L 66 72 Q 68 71 68 73 Q 68 75 66 76 L 50 80
+          L 32 76 Q 30 77 30 79 Q 30 81 32 82 L 50 86
+          L 68 82 Q 70 81 70 83 Q 70 85 68 86 L 50 90
+          Z
+        "
+        />
       </svg>
 
       {/* Text */}
