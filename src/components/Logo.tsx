@@ -31,32 +31,58 @@ const Logo = ({ className = "", size = "md", showText = true }: LogoProps) => {
           className="text-black"
         />
 
-        {/* Spine symbol - simple and accurate design */}
-        <g fill="white">
-          {/* Central spine column */}
-          <rect x="49" y="15" width="2" height="70" />
-
-          {/* Vertebrae extensions - alternating left and right */}
-          {/* Top - small extensions */}
-          <ellipse cx="46" cy="18" rx="6" ry="2" />
-          <ellipse cx="54" cy="22" rx="7" ry="2.5" />
-
-          {/* Upper middle - medium extensions */}
-          <ellipse cx="43" cy="28" rx="8" ry="3" />
-          <ellipse cx="57" cy="34" rx="9" ry="3.5" />
-
-          {/* Middle - large extensions */}
-          <ellipse cx="40" cy="42" rx="10" ry="4" />
-          <ellipse cx="60" cy="50" rx="11" ry="4.5" />
-
-          {/* Lower middle - medium extensions */}
-          <ellipse cx="43" cy="58" rx="8" ry="3.5" />
-          <ellipse cx="57" cy="66" rx="9" ry="3" />
-
-          {/* Bottom - small extensions */}
-          <ellipse cx="46" cy="74" rx="7" ry="2.5" />
-          <ellipse cx="54" cy="80" rx="6" ry="2" />
-        </g>
+        {/* Spine symbol - flowing organic design */}
+        <path
+          fill="white"
+          d="
+          M 50 15
+          C 48 15 46 16 44 18
+          C 42 20 42 22 44 24
+          C 46 26 48 26 50 26
+          C 52 26 54 26 56 24
+          C 58 22 58 20 56 18
+          C 54 16 52 15 50 15
+          Z
+          M 50 24
+          C 50 24 48 26 44 28
+          C 40 30 38 32 38 34
+          C 38 36 40 38 44 40
+          C 48 42 50 42 50 42
+          C 50 42 52 42 56 40
+          C 60 38 62 36 62 34
+          C 62 32 60 30 56 28
+          C 52 26 50 24 50 24
+          Z
+          M 50 40
+          C 50 40 48 42 42 44
+          C 36 46 32 48 32 51
+          C 32 54 36 56 42 58
+          C 48 60 50 60 50 60
+          C 50 60 52 60 58 58
+          C 64 56 68 54 68 51
+          C 68 48 64 46 58 44
+          C 52 42 50 40 50 40
+          Z
+          M 50 58
+          C 50 58 48 60 44 62
+          C 40 64 38 66 38 68
+          C 38 70 40 72 44 74
+          C 48 76 50 76 50 76
+          C 50 76 52 76 56 74
+          C 60 72 62 70 62 68
+          C 62 66 60 64 56 62
+          C 52 60 50 58 50 58
+          Z
+          M 50 74
+          C 48 74 46 75 44 77
+          C 42 79 42 81 44 83
+          C 46 85 48 85 50 85
+          C 52 85 54 85 56 83
+          C 58 81 58 79 56 77
+          C 54 75 52 74 50 74
+          Z
+        "
+        />
       </svg>
 
       {/* Text */}
