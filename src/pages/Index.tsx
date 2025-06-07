@@ -262,7 +262,7 @@ const Index = () => {
               style={{ color: "#9a9c97" }}
             >
               Ми - команда професіоналів з 9-річним досвідом у сфері
-              лікувального масажу та реабілітації. Спеціалізуємося на лікуванні
+              лікувального масажу та реа��ілітації. Спеціалізуємося на лікуванні
               сколіозу та захворювань опорно-рухового апарату.
             </p>
           </div>
@@ -414,230 +414,164 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {highlights.map((highlight, index) => (
-              <div key={index} className="text-center group cursor-pointer">
-                <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center mb-2 mx-auto group-hover:scale-110 transition-transform duration-300"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(45, 70, 64, 0.1) 0%, rgba(45, 70, 64, 0.2) 100%)",
-                  }}
-                >
-                  <span className="text-2xl">
-                    {highlight.title.includes("🩶")
-                      ? "🩶"
-                      : highlight.title.includes("🎁")
-                        ? "🎁"
-                        : highlight.title.includes("💪🏻")
-                          ? "💪🏻"
-                          : "📋"}
-                  </span>
-                </div>
-                <h4
-                  className="text-sm font-medium mb-1"
-                  style={{ color: "#161616" }}
-                >
-                  {highlight.title}
-                </h4>
-                <p className="text-xs" style={{ color: "#9a9c97" }}>
-                  {highlight.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Client Stories Section - Instagram "Ви 🩶" inspired */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2
-              className="text-3xl font-bold mb-4"
-              style={{ color: "#161616" }}
-            >
-              Ви 🩶
-            </h2>
-            <p className="text-lg" style={{ color: "#9a9c97" }}>
-              Історії наших клієнтів та їх успіхи в лікуванні
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Client Story 1 */}
-            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-shadow duration-300">
-              <div className="aspect-square bg-gradient-to-br from-green-100 to-green-200 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <span className="text-2xl">👩‍⚕️</span>
-                    </div>
-                    <h3
-                      className="font-bold text-lg mb-2"
-                      style={{ color: "#161616" }}
-                    >
-                      Марія, 32 роки
-                    </h3>
-                    <p className="text-sm" style={{ color: "#2d4640" }}>
-                      Сколіоз 2 ступеня
-                    </p>
-                  </div>
-                </div>
-                <div className="absolute top-4 right-4">
-                  <div className="bg-white/90 rounded-full p-2">
-                    <Heart className="w-4 h-4 text-red-500" />
-                  </div>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <p className="mb-4" style={{ color: "#9a9c97" }}>
-                  "Після 3 місяців лікувального масажу спина перестала боліти.
-                  Постава значно покращилась! Дуже вдячна за професійний
-                  підхід."
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-4 h-4 text-yellow-400 fill-current"
-                        />
-                      ))}
-                    </div>
-                    <span className="text-sm ml-2" style={{ color: "#9a9c97" }}>
-                      До/Після
-                    </span>
-                  </div>
-                  <Badge
-                    variant="outline"
-                    style={{ borderColor: "#2d4640", color: "#2d4640" }}
-                  >
-                    3 місяці
-                  </Badge>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Client Story 2 */}
-            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-shadow duration-300">
-              <div className="aspect-square bg-gradient-to-br from-blue-100 to-blue-200 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <span className="text-2xl">👨‍💼</span>
-                    </div>
-                    <h3
-                      className="font-bold text-lg mb-2"
-                      style={{ color: "#161616" }}
-                    >
-                      Андрій, 45 років
-                    </h3>
-                    <p className="text-sm" style={{ color: "#2d4640" }}>
-                      Остеохондроз
-                    </p>
-                  </div>
-                </div>
-                <div className="absolute top-4 right-4">
-                  <div className="bg-white/90 rounded-full p-2">
-                    <CheckCircle
-                      className="w-4 h-4"
+          {/* Instagram Story Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Story 1 - Who, Where, What */}
+            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <div className="aspect-[9/16] bg-gradient-to-br from-green-50 to-green-100 relative overflow-hidden">
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                  <div className="mb-6">
+                    <Logo
+                      size="md"
+                      showText={false}
                       style={{ color: "#2d4640" }}
                     />
                   </div>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <p className="mb-4" style={{ color: "#9a9c97" }}>
-                  "Робота за комп'ютером знищувала спину. Реабілітаційна
-                  програма врятувала мене від постійного болю. Рекомендую всім
-                  офісним працівникам!"
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-4 h-4 text-yellow-400 fill-current"
-                        />
-                      ))}
+                  <div className="space-y-4">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-sm">
+                      <p
+                        className="text-sm font-medium"
+                        style={{ color: "#2d4640" }}
+                      >
+                        Хто це?
+                      </p>
                     </div>
-                    <span className="text-sm ml-2" style={{ color: "#9a9c97" }}>
-                      Результат
-                    </span>
-                  </div>
-                  <Badge
-                    variant="outline"
-                    style={{ borderColor: "#2d4640", color: "#2d4640" }}
-                  >
-                    2 місяці
-                  </Badge>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Client Story 3 */}
-            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-shadow duration-300">
-              <div className="aspect-square bg-gradient-to-br from-purple-100 to-purple-200 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <span className="text-2xl">👵</span>
+                    <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-sm">
+                      <p
+                        className="text-sm font-medium"
+                        style={{ color: "#2d4640" }}
+                      >
+                        Де це?
+                      </p>
                     </div>
-                    <h3
-                      className="font-bold text-lg mb-2"
-                      style={{ color: "#161616" }}
-                    >
-                      Людмила, 68 років
-                    </h3>
-                    <p className="text-sm" style={{ color: "#2d4640" }}>
-                      Реабілітація після травми
-                    </p>
+                    <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-sm">
+                      <p
+                        className="text-sm font-medium"
+                        style={{ color: "#2d4640" }}
+                      >
+                        Що це?
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div className="absolute top-4 right-4">
-                  <div className="bg-white/90 rounded-full p-2">
-                    <Award className="w-4 h-4" style={{ color: "#2d4640" }} />
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-sm">📋</span>
                   </div>
                 </div>
               </div>
-              <CardContent className="p-6">
-                <p className="mb-4" style={{ color: "#9a9c97" }}>
-                  "Після падіння думала, що вже ніколи не буду нормально ходити.
-                  Завдяки масажу та вправам повністю відновилась. Дякую за
-                  турботу!"
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-4 h-4 text-yellow-400 fill-current"
-                        />
-                      ))}
+            </Card>
+
+            {/* Story 2 - Support and Foundation */}
+            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <div className="aspect-[9/16] bg-gradient-to-br from-blue-50 to-blue-100 relative overflow-hidden">
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                  <div className="w-24 h-32 bg-white/20 rounded-lg mb-4 flex items-center justify-center border-2 border-white/30">
+                    <div className="text-center">
+                      <div className="w-8 h-12 bg-white/40 rounded mx-auto mb-2"></div>
+                      <div className="space-y-1">
+                        {[...Array(5)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="w-6 h-1 bg-white/50 rounded mx-auto"
+                          ></div>
+                        ))}
+                      </div>
                     </div>
-                    <span className="text-sm ml-2" style={{ color: "#9a9c97" }}>
-                      Відновлення
-                    </span>
                   </div>
-                  <Badge
-                    variant="outline"
-                    style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                  <p
+                    className="text-sm font-medium text-center leading-relaxed"
+                    style={{ color: "#2d4640" }}
                   >
-                    4 місяці
-                  </Badge>
+                    Ваша підтримка та
+                    <br />
+                    міцний фундамент
+                    <br />
+                    здоров'я
+                  </p>
                 </div>
-              </CardContent>
+                <div className="absolute top-4 right-4">
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-sm">🏗️</span>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Story 3 - Spine X-ray */}
+            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <div className="aspect-[9/16] bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                  <div className="w-16 h-32 bg-white/10 rounded-lg mb-4 flex items-center justify-center border border-white/20">
+                    <div className="text-center">
+                      <div className="w-4 h-16 bg-white/30 rounded mx-auto relative">
+                        {[...Array(7)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="absolute w-6 h-2 bg-white/50 rounded left-1/2 transform -translate-x-1/2"
+                            style={{ top: `${i * 12 + 8}%` }}
+                          ></div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-white text-sm font-bold mb-2">
+                    ТВОЯ ОПОРА - ЦЕ ВІН ХРЕБЕТ
+                  </p>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                    <p className="text-white text-xs font-medium">ХРЕБЕТ</p>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4">
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-sm">🦴</span>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Story 4 - Neon Sign */}
+            <Card className="overflow-hidden border-gray-200 group hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <div className="aspect-[9/16] bg-gradient-to-br from-green-800 to-green-900 relative overflow-hidden">
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                  <div className="mb-6 relative">
+                    <div
+                      className="text-lg font-bold px-4 py-2 rounded-lg border-2 relative overflow-hidden"
+                      style={{
+                        color: "#00ff88",
+                        borderColor: "#00ff88",
+                        textShadow:
+                          "0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88",
+                        boxShadow:
+                          "0 0 10px rgba(0, 255, 136, 0.3), inset 0 0 10px rgba(0, 255, 136, 0.1)",
+                      }}
+                    >
+                      tvoya.opora.te
+                      <div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-pulse"
+                        style={{ animation: "shimmer 2s infinite" }}
+                      ></div>
+                    </div>
+                  </div>
+                  <p className="text-white text-sm text-center leading-relaxed">
+                    Ми - клініка здорового
+                    <br />
+                    хребта у Тернополі
+                  </p>
+                </div>
+                <div className="absolute top-4 right-4">
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-sm">💚</span>
+                  </div>
+                </div>
+              </div>
             </Card>
           </div>
 
-          {/* Instagram-style "See More" call to action */}
+          {/* Call to action for Instagram */}
           <div className="text-center mt-12">
             <p className="mb-4" style={{ color: "#9a9c97" }}>
-              Більше історій успіху в наших Instagram Stories
+              Більше корисної інформації в наших Instagram Stories
             </p>
             <a
               href="https://www.instagram.com/tvoya.opora.te/"
@@ -655,9 +589,238 @@ const Index = () => {
               }}
             >
               <Instagram className="w-5 h-5 mr-2" />
-              Переглянути "Ви 🩶" в Instagram
+              Переглянути всі Stories
               <ExternalLink className="w-4 h-4 ml-2" />
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Reviews Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2
+              className="text-3xl font-bold mb-4"
+              style={{ color: "#161616" }}
+            >
+              Відгуки наших клієнтів
+            </h2>
+            <p className="text-lg" style={{ color: "#9a9c97" }}>
+              Довіра та задоволення наших пацієнтів - найкраща оцінка нашої
+              роботи
+            </p>
+          </div>
+
+          {/* Google Rating Summary */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-gray-50 rounded-2xl p-6 shadow-sm">
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-2">
+                  <span
+                    className="text-4xl font-bold mr-3"
+                    style={{ color: "#2d4640" }}
+                  >
+                    4.8
+                  </span>
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-6 h-6 ${i < 4 ? "text-yellow-400 fill-current" : i === 4 ? "text-yellow-400 fill-current" : "text-gray-300"}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <p style={{ color: "#9a9c97" }}>
+                  На основі <strong>23 відгуків</strong> у Google
+                </p>
+                <a
+                  href="https://maps.app.goo.gl/s73LiDStMvvvS8EC8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center mt-3 px-4 py-2 rounded-lg border transition-colors text-sm"
+                  style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = "#2d4640";
+                    e.target.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "transparent";
+                    e.target.style.color = "#2d4640";
+                  }}
+                >
+                  Переглянути всі відгуки
+                  <ExternalLink className="w-4 h-4 ml-1" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Recent Reviews Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Review 1 */}
+            <Card className="border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
+                      О
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-semibold" style={{ color: "#161616" }}>
+                        Оксана Петренко
+                      </p>
+                      <div className="flex">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 text-yellow-400 fill-current"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-xs" style={{ color: "#9a9c97" }}>
+                    2 тижні тому
+                  </p>
+                </div>
+                <p style={{ color: "#9a9c97" }}>
+                  "Дуже кваліфіковані спеціалісти! Після курсу масажу для спини
+                  відчуваю себе набагато краще. Індивідуальний підхід до кожного
+                  пацієнта. Рекомендую!"
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Review 2 */}
+            <Card className="border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-semibold">
+                      А
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-semibold" style={{ color: "#161616" }}>
+                        Андрій Коваленко
+                      </p>
+                      <div className="flex">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 text-yellow-400 fill-current"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-xs" style={{ color: "#9a9c97" }}>
+                    1 місяць тому
+                  </p>
+                </div>
+                <p style={{ color: "#9a9c97" }}>
+                  "Професійний підхід до лікування сколіозу. Вже після кількох
+                  сеансів помітні покраще��ня. Зручне розташування в центрі
+                  Тернополя. Дякую команді!"
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Review 3 */}
+            <Card className="border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-semibold">
+                      М
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-semibold" style={{ color: "#161616" }}>
+                        Марина Іванова
+                      </p>
+                      <div className="flex">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 text-yellow-400 fill-current"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-xs" style={{ color: "#9a9c97" }}>
+                    3 тижні тому
+                  </p>
+                </div>
+                <p style={{ color: "#9a9c97" }}>
+                  "Відмінна реабілітаційна програма після травми хребта. Уважні
+                  спеціалісти, сучасне обладнання. Результат перевищив
+                  очікування. 100% рекомендую!"
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Google Reviews Widget Alternative */}
+          <div className="mt-12 text-center">
+            <div className="bg-gray-50 rounded-xl p-8 max-w-4xl mx-auto">
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
+                  <span className="text-white font-bold text-xl">G</span>
+                </div>
+                <div className="text-left">
+                  <h3
+                    className="font-bold text-lg"
+                    style={{ color: "#161616" }}
+                  >
+                    Google Reviews
+                  </h3>
+                  <p style={{ color: "#9a9c97" }}>
+                    Оцініть нашу роботу та поділіться своїм досвідом
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <a
+                  href="https://maps.app.goo.gl/s73LiDStMvvvS8EC8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center px-6 py-3 rounded-lg border transition-colors"
+                  style={{ borderColor: "#2d4640", color: "#2d4640" }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = "#2d4640";
+                    e.target.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "transparent";
+                    e.target.style.color = "#2d4640";
+                  }}
+                >
+                  <Star className="w-5 h-5 mr-2" />
+                  Переглянути всі відгуки
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </a>
+
+                <a
+                  href="https://maps.app.goo.gl/s73LiDStMvvvS8EC8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center px-6 py-3 rounded-lg transition-colors text-white"
+                  style={{ backgroundColor: "#2d4640" }}
+                  onMouseEnter={(e) =>
+                    (e.target.style.backgroundColor = "#1f332f")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.target.style.backgroundColor = "#2d4640")
+                  }
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Залишити відгук
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -742,7 +905,7 @@ const Index = () => {
                 </h3>
                 <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                   <iframe
-                    src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=uk&amp;q=49.553516,25.596625+(Твоя%20Опора)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                    src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=uk&amp;q=49.553516,25.596625+(Твоя%20Опора%20-%20Реабілітаційно-масажний%20центр)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -854,7 +1017,7 @@ const Index = () => {
                       }
                     >
                       <MessageCircle className="w-5 h-5 mr-2" />
-                      Надіслати з��явку
+                      Надіслати заявку
                     </Button>
                   </div>
                 </CardContent>
