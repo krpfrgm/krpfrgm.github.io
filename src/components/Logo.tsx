@@ -31,51 +31,32 @@ const Logo = ({ className = "", size = "md", showText = true }: LogoProps) => {
           className="text-black"
         />
 
-        {/* Spine symbol - exact flowing design matching the original */}
-        <path
-          fill="white"
-          d="
-          M 50 12
-          Q 45 14 42 16
-          Q 40 18 42 20
-          Q 44 22 48 21
-          Q 50 20 50 20
-          Q 50 20 52 21
-          Q 56 22 58 20
-          Q 60 18 58 16
-          Q 55 14 50 12
+        {/* Spine symbol - simple and accurate design */}
+        <g fill="white">
+          {/* Central spine column */}
+          <rect x="49" y="15" width="2" height="70" />
 
-          Q 50 20 50 24
-          Q 48 26 44 28
-          Q 38 30 38 33
-          Q 38 36 44 37
-          Q 48 38 50 38
+          {/* Vertebrae extensions - alternating left and right */}
+          {/* Top - small extensions */}
+          <ellipse cx="46" cy="18" rx="6" ry="2" />
+          <ellipse cx="54" cy="22" rx="7" ry="2.5" />
 
-          Q 50 38 50 42
-          Q 52 44 56 46
-          Q 62 48 62 51
-          Q 62 54 56 55
-          Q 52 56 50 56
+          {/* Upper middle - medium extensions */}
+          <ellipse cx="43" cy="28" rx="8" ry="3" />
+          <ellipse cx="57" cy="34" rx="9" ry="3.5" />
 
-          Q 50 56 50 60
-          Q 48 62 44 64
-          Q 36 66 36 69
-          Q 36 72 44 73
-          Q 48 74 50 74
+          {/* Middle - large extensions */}
+          <ellipse cx="40" cy="42" rx="10" ry="4" />
+          <ellipse cx="60" cy="50" rx="11" ry="4.5" />
 
-          Q 50 74 50 78
-          Q 52 80 56 82
-          Q 64 84 64 87
-          Q 64 90 56 91
-          Q 52 92 50 92
-          Q 48 92 44 91
-          Q 36 90 36 87
-          Q 36 84 44 82
-          Q 48 80 50 78
+          {/* Lower middle - medium extensions */}
+          <ellipse cx="43" cy="58" rx="8" ry="3.5" />
+          <ellipse cx="57" cy="66" rx="9" ry="3" />
 
-          Z
-        "
-        />
+          {/* Bottom - small extensions */}
+          <ellipse cx="46" cy="74" rx="7" ry="2.5" />
+          <ellipse cx="54" cy="80" rx="6" ry="2" />
+        </g>
       </svg>
 
       {/* Text */}
