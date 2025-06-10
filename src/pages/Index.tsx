@@ -46,7 +46,7 @@ const serviceProviders = [
       },
       {
         icon: <Heart className="w-6 h-6" style={{ color: "#2d4640" }} />,
-        tittitle: "Індивідуальний підхід",
+        title: "Індивідуальний підхід",
         description:
           "Кожен клієнт отримує персональну програму лікування та реабілітації",
       },
@@ -260,12 +260,12 @@ const ServiceProviderCarousel = () => {
                           {provider.specialization}
                         </Badge>
                       </div>
-                      <p className="text-lg mb-6" style={{ color: "#9a9c97" }}>
+                      {/* <p className="text-lg mb-6" style={{ color: "#9a9c97" }}>
                         {provider.description}
-                      </p>
+                      </p> */}
                     </div>
 
-                    <div className="space-y-4">
+                    <div className="space-y-4" style={{ paddingTop: "2%" }}>
                       {provider.achievements.map((achievement, idx) => (
                         <div key={idx} className="flex items-start space-x-4">
                           <div
@@ -281,7 +281,7 @@ const ServiceProviderCarousel = () => {
                             >
                               {achievement.title}
                             </h3>
-                            <p style={{ color: "#9a9c97" }}>
+                            <p style={{ color: "#9a9c97", padding: "1%" }}>
                               {achievement.description}
                             </p>
                           </div>
