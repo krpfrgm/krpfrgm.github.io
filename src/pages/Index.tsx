@@ -31,7 +31,7 @@ const serviceProviders = [
     name: "Сергій Калмазан",
     title: "Лікар ортопед-травматолог | вертебролог",
     subtitle: "Сертифікований масажист-реабілітолог",
-    experience: "9 років досвіду",
+    experience: "9+ років досвіду",
     specialization: "Лікувальний масаж та сколіоз",
     gradient: "from-green-50 to-blue-50",
     imageUrl: "/images/Serhii.jpg",
@@ -45,13 +45,8 @@ const serviceProviders = [
           "Багаторічний досвід роботи з різними захворюваннями опорно-рухового апарату",
       },
       {
-        icon: <CheckCircle className="w-6 h-6" style={{ color: "#2d4640" }} />,
-        title: "Сертифікований підхід",
-        description: "Використання сучасних методик лікування та реабілітації",
-      },
-      {
         icon: <Heart className="w-6 h-6" style={{ color: "#2d4640" }} />,
-        title: "Індивідуальний підхід",
+        tittitle: "Індивідуальний підхід",
         description:
           "Кожен клієнт отримує персональну програму лікування та реабілітації",
       },
@@ -61,8 +56,8 @@ const serviceProviders = [
     id: 2,
     name: "Lilia Shemchuk",
     title: "Спеціаліст з реабілітації",
-    subtitle: "Фізіотерапевт-реабілітолог",
-    experience: "7 років досвіду",
+    subtitle: "Лікар терапевт, гастроентеролог",
+    experience: "3 років досвіду",
     specialization: "Реабілітація та фізіотерапія",
     gradient: "from-blue-50 to-purple-50",
     imageUrl: "/images/Lilia.jpg", // Add your image here
@@ -71,13 +66,8 @@ const serviceProviders = [
     achievements: [
       {
         icon: <Users className="w-6 h-6" style={{ color: "#2d4640" }} />,
-        title: "7+ років досвіду",
-        description: "Спеціалізація на реабілітації після травм та операцій",
-      },
-      {
-        icon: <Award className="w-6 h-6" style={{ color: "#2d4640" }} />,
-        title: "Спортивна реабілітація",
-        description: "Робота з професійними спортсменами та активними людьми",
+        title: "3 років досвіду",
+        description: "Комплексний підхід до лікування захворювань внутрішніх органів",
       },
       {
         icon: <CheckCircle className="w-6 h-6" style={{ color: "#2d4640" }} />,
@@ -117,7 +107,7 @@ const ServiceProviderCarousel = () => {
 
     const interval = setInterval(() => {
       nextProvider();
-    }, 5000); // Change every 5 seconds
+    }, 10000); // Change every 5 seconds
 
     return () => clearInterval(interval);
   }, [isPlaying, currentIndex]);
@@ -623,7 +613,7 @@ const Index = () => {
                     className="text-sm font-medium"
                     style={{ color: "#161616" }}
                   >
-                    Сертифіковані спеціалісти
+                    Спеціалісти з медичною освітою
                   </span>
                 </div>
               </div>
@@ -755,7 +745,7 @@ const Index = () => {
                   Професійно
                 </h3>
                 <p className="text-sm" style={{ color: "#9a9c97" }}>
-                  Сертифіковані спеціалісти
+                  Спеціалісти з медичною освітою
                 </p>
               </CardContent>
             </Card>
@@ -1465,7 +1455,7 @@ const Index = () => {
                 </h3>
                 <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d192.41261927508788!2d25.5904309538405!3d49.545206004260955!3m2!1i1024!2i768!4f60!3m3!1m2!1s0x473036b0923af08d%3A0x4bb815779bcaba59!2z0KLQstC-0Y8g0L7Qv9C-0YDQsCDigJQg0YbQtdC90YLRgCDRhNGW0LfQuNGH0L3QvtGXINGA0LXQsNCx0ZbQu9GW0YLQsNGG0ZbRlw!5e0!3m2!1sen!2sua!4v1749328166397!5m2!1sen!2sua"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d192.41261927508788!2d25.5904309538405!3d49.545206004260955!3m2!1i1024!2i768!4f110!3m3!1m2!1s0x473036b0923af08d%3A0x4bb815779bcaba59!2z0KLQstC-0Y8g0L7Qv9C-0YDQsCDigJQg0YbQtdC90YLRgCDRhNGW0LfQuNGH0L3QvtGXINGA0LXQsNCx0ZbQu9GW0YLQsNGG0ZbRlw!5e0!3m2!1sen!2sua!4v1749328166397!5m2!1sen!2sua"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

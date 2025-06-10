@@ -91,7 +91,7 @@ const Logo = ({
               className="text-xs leading-tight font-aaargh"
               style={{ fontSize: `${fontSize * 0.6}px`, color: "#9a9c97" }}
             >
-              РЕАБІЛІТАЦІЙНО-МАСАЖНИЙ ЦЕНТР
+              КЛІНІКА ЗДОРОВОЇ СПИНИ
             </span>
           )}
         </div>
